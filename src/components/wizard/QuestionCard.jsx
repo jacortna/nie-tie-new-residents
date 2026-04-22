@@ -42,24 +42,24 @@ export default function QuestionCard({ question, onSelect, currentStep, totalSte
     >
       {/* Progress */}
       <div className="flex items-center gap-3 mb-8">
-        <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden">
+        <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-secondary rounded-full"
+            className="h-full bg-[#C9A800] rounded-full"
             initial={{ width: 0 }}
             animate={{ width: `${((currentStep + 1) / totalSteps) * 100}%` }}
             transition={{ duration: 0.4 }}
           />
         </div>
-        <span className="text-xs text-muted-foreground font-medium">
-          {currentStep + 1}/{totalSteps}
+        <span className="text-xs text-gray-400 font-semibold bg-gray-100 px-2 py-1 rounded-full">
+          {currentStep + 1} / {totalSteps}
         </span>
       </div>
 
-      <h2 className="font-heading text-2xl sm:text-3xl font-bold text-primary mb-2">
+      <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#1a3fd4] mb-2">
         {question.question}
       </h2>
       {question.subtitle && (
-        <p className="text-muted-foreground mb-8">{question.subtitle}</p>
+        <p className="text-gray-500 mb-8">{question.subtitle}</p>
       )}
 
       <div className="grid gap-3">
@@ -72,15 +72,15 @@ export default function QuestionCard({ question, onSelect, currentStep, totalSte
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05 }}
               onClick={() => onSelect(question.id, option.value)}
-              className="w-full flex items-start gap-4 p-5 rounded-xl border border-border/60 bg-card hover:border-secondary/50 hover:bg-accent/40 transition-all duration-200 text-left group"
+              className="w-full flex items-start gap-4 p-5 rounded-xl border-2 border-gray-100 bg-white hover:border-[#C9A800] hover:shadow-md transition-all duration-200 text-left group"
             >
-              <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/20 transition-colors">
-                <Icon className="w-5 h-5 text-secondary" />
+              <div className="w-11 h-11 rounded-xl bg-[#1a3fd4]/8 flex items-center justify-center flex-shrink-0 group-hover:bg-[#C9A800]/15 transition-colors">
+                <Icon className="w-5 h-5 text-[#1a3fd4] group-hover:text-[#C9A800] transition-colors" />
               </div>
               <div className="min-w-0">
-                <p className="font-semibold text-foreground">{option.label}</p>
+                <p className="font-semibold text-gray-800 group-hover:text-[#1a3fd4] transition-colors">{option.label}</p>
                 {option.description && (
-                  <p className="text-sm text-muted-foreground mt-0.5">{option.description}</p>
+                  <p className="text-sm text-gray-400 mt-0.5">{option.description}</p>
                 )}
               </div>
             </motion.button>

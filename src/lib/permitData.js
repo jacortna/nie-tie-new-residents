@@ -250,6 +250,19 @@ export const PERMITS = {
       "Seguro médico (si no trabajas)",
       "Empadronamiento"
     ],
+    documents: [
+      "Pasaporte o DNI original + fotocopia",
+      "Formulario EX-18 cumplimentado y firmado",
+      "Justificante de pago tasa 790-012 (modelo 790, código 012)",
+      "Según situación: contrato de trabajo / matrícula / certificado de recursos económicos / libro de familia",
+      "Seguro médico si no cotizas a la Seguridad Social",
+      "Certificado de empadronamiento o justificante de domicilio"
+    ],
+    where_to_apply: [
+      { place: "Oficina de Extranjería", detail: "La de tu provincia de residencia. Necesitas cita previa en sede.gob.es" },
+      { place: "Comisaría de Policía Nacional habilitada", detail: "Algunas comisarías gestionan este trámite. Consulta la de tu municipio." },
+      { place: "Cita previa online", detail: "Reserva en: https://sede.administracionespublicas.gob.es (búsqueda: 'Certificados UE')" }
+    ],
     steps: [
       "Pide cita previa en la Oficina de Extranjería o comisaría de tu zona",
       "Rellena el formulario EX-18",
@@ -281,6 +294,17 @@ export const PERMITS = {
       "Empadronamiento histórico",
       "Formulario EX-18"
     ],
+    documents: [
+      "Formulario EX-18 cumplimentado",
+      "Pasaporte o DNI en vigor + fotocopia",
+      "Certificado de empadronamiento histórico (acredita los 5 años)",
+      "Certificado de registro de ciudadano UE anterior",
+      "Justificante de pago tasa 790-012"
+    ],
+    where_to_apply: [
+      { place: "Oficina de Extranjería de tu provincia", detail: "Presencialmente con cita previa en sede.gob.es" },
+      { place: "Online (sede electrónica)", detail: "Si tienes certificado digital o DNI electrónico puedes tramitarlo en sede.administracionespublicas.gob.es" }
+    ],
     steps: [
       "Solicita cita previa en Extranjería",
       "Prepara documentación acreditativa de residencia continuada",
@@ -309,6 +333,18 @@ export const PERMITS = {
       "Documentación que acredite el vínculo familiar (matrimonio, pareja de hecho, nacimiento, dependencia económica)",
       "Formulario EX-19",
       "3 fotos tamaño carnet"
+    ],
+    documents: [
+      "Pasaporte del familiar no comunitario (original + fotocopia de todas las páginas)",
+      "Formulario EX-19 cumplimentado",
+      "Certificado de registro del ciudadano UE en España",
+      "Documento que acredita el vínculo: libro de familia, certificado de matrimonio o pareja de hecho, acta de nacimiento",
+      "3 fotografías recientes en color fondo blanco",
+      "Justificante de pago de la tasa 790-012"
+    ],
+    where_to_apply: [
+      { place: "Oficina de Extranjería de la provincia de residencia", detail: "Con cita previa obligatoria en sede.gob.es" },
+      { place: "Comisaría de Policía Nacional (algunas)", detail: "Dependiendo de la provincia, puede tramitarse en comisaría" }
     ],
     steps: [
       "Solicita cita previa en Extranjería",
@@ -344,6 +380,19 @@ export const PERMITS = {
       "El empleador debe acreditar la situación nacional de empleo (salvo excepciones)",
       "El puesto debe estar en el catálogo de ocupaciones de difícil cobertura o se debe acreditar insuficiencia de demandantes"
     ],
+    documents: [
+      "Pasaporte en vigor con al menos 1 año de vigencia (original + fotocopia)",
+      "Certificado de antecedentes penales del país de origen (apostillado y traducido)",
+      "Certificado médico oficial",
+      "Contrato de trabajo firmado por el empleador",
+      "Formulario EX-03 (lo presenta el empleador)",
+      "Alta en la Seguridad Social o compromiso de alta"
+    ],
+    where_to_apply: [
+      { place: "El empleador lo inicia en la Delegación/Subdelegación del Gobierno", detail: "De la provincia donde se ejercerá el trabajo" },
+      { place: "Tú solicitas el visado en el Consulado de España de tu país", detail: "Una vez autorizado el permiso, debes recoger el visado en el consulado" },
+      { place: "TIE en Extranjería o Comisaría (tras llegar)", detail: "En el plazo de 1 mes desde tu llegada, en la oficina de extranjería o comisaría de tu provincia" }
+    ],
     steps: [
       "El empleador presenta la solicitud de autorización ante la Delegación de Gobierno",
       "Una vez aprobada, solicitas el visado en el consulado de España en tu país",
@@ -375,6 +424,20 @@ export const PERMITS = {
       "Pasaporte en vigor",
       "Certificado de antecedentes penales",
       "Certificado médico"
+    ],
+    documents: [
+      "Pasaporte en vigor (original + fotocopia)",
+      "Certificado de antecedentes penales (apostillado y traducido)",
+      "Certificado médico",
+      "Plan de negocio detallado y firmado",
+      "Acreditación de cualificación: título profesional, certificado de experiencia laboral",
+      "Justificación de medios económicos para la inversión inicial",
+      "Formulario EX-07"
+    ],
+    where_to_apply: [
+      { place: "Consulado de España en tu país de residencia", detail: "Presenta toda la documentación. Ellos evalúan el plan de negocio y conceden el visado." },
+      { place: "Delegación/Subdelegación del Gobierno (si ya estás en España legalmente)", detail: "Puedes solicitar la autorización sin salir de España en algunos casos" },
+      { place: "TIE en Extranjería tras llegar", detail: "Solicita la tarjeta de identidad en el plazo de 1 mes desde tu llegada" }
     ],
     steps: [
       "Prepara un plan de negocio completo",
@@ -408,6 +471,19 @@ export const PERMITS = {
       "Certificado de antecedentes penales (si la estancia supera 6 meses)",
       "Certificado médico"
     ],
+    documents: [
+      "Pasaporte en vigor (original + fotocopia de todas las páginas)",
+      "Carta de admisión oficial del centro educativo en España",
+      "Seguro médico completo (sin copago, que cubra toda la estancia)",
+      "Justificante de medios económicos: extractos bancarios, carta de patrocinio, beca",
+      "Certificado de antecedentes penales si la estancia supera 6 meses (apostillado y traducido)",
+      "Certificado médico",
+      "Formulario nacional de solicitud de visado de estudios"
+    ],
+    where_to_apply: [
+      { place: "Consulado de España en tu país", detail: "Solicita el visado de estudios antes de viajar. Necesitas cita previa." },
+      { place: "Oficina de Extranjería o Comisaría (una vez en España)", detail: "Solicita la TIE en el plazo de 30 días desde tu entrada con cita previa en sede.gob.es" }
+    ],
     steps: [
       "Obtén tu carta de admisión del centro educativo",
       "Solicita el visado de estudios en el consulado de España",
@@ -440,6 +516,20 @@ export const PERMITS = {
       "Pasaporte en vigor",
       "Certificado de antecedentes penales"
     ],
+    documents: [
+      "Pasaporte en vigor (original + fotocopia)",
+      "Certificado de antecedentes penales (apostillado y traducido)",
+      "Seguro médico completo en España",
+      "Contrato laboral o acuerdo de prestación de servicios con empresa extranjera (mín. 1 año de antigüedad)",
+      "Justificante de ingresos: nóminas o pagos de los últimos 3 meses (mín. 200% del SMI)",
+      "Documentación de la empresa: registro mercantil extranjero, descripción de actividad",
+      "Formulario EX-11 (si solicitas desde España) o solicitud de visado (si desde el consulado)"
+    ],
+    where_to_apply: [
+      { place: "Consulado de España en tu país (si estás en el extranjero)", detail: "Solicita el visado de teletrabajo internacional. Cita previa obligatoria." },
+      { place: "Unidad de Grandes Empresas (UGE) o Extranjería (si ya estás en España legalmente)", detail: "Puedes solicitar directamente la autorización de residencia sin salir de España" },
+      { place: "Sede electrónica del Ministerio de Inclusión", detail: "Algunos trámites se pueden iniciar online en sede.immigracion.gob.es" }
+    ],
     steps: [
       "Prepara la documentación laboral y de ingresos",
       "Solicita el visado en el consulado (si estás fuera) o la autorización de residencia (si estás en España legalmente)",
@@ -470,6 +560,19 @@ export const PERMITS = {
       "Seguro médico",
       "Certificado de antecedentes penales",
       "Medios económicos suficientes"
+    ],
+    documents: [
+      "Pasaporte en vigor",
+      "Certificado de antecedentes penales (apostillado y traducido)",
+      "Seguro médico completo",
+      "Documentación acreditativa de la inversión: certificado del Banco de España, escrituras, certificado de acciones",
+      "Declaración de no tener deudas con la AEAT ni con la Seguridad Social",
+      "Formulario EX-01 o solicitud de visado de inversor"
+    ],
+    where_to_apply: [
+      { place: "Consulado de España en tu país", detail: "Para solicitar el visado de inversor antes de viajar a España" },
+      { place: "Unidad de Grandes Empresas (UGE)", detail: "Para solicitar la autorización de residencia directamente en España. Más rápida que Extranjería ordinaria." },
+      { place: "Sede electrónica", detail: "Trámite posible online en algunos casos en sede.administracionespublicas.gob.es" }
     ],
     steps: [
       "Realiza la inversión y obtén documentación acreditativa",
@@ -502,6 +605,19 @@ export const PERMITS = {
       "Documentación del vínculo familiar",
       "Pasaportes en vigor de los familiares"
     ],
+    documents: [
+      "Permiso de residencia del reagrupante en vigor (o de larga duración)",
+      "Pasaporte del familiar a reagrupar (original + fotocopia)",
+      "Certificado de vínculo familiar: libro de familia, acta de matrimonio o nacimiento (apostillados y traducidos)",
+      "Informe de habitabilidad de la vivienda (emitido por el ayuntamiento)",
+      "Justificante de ingresos suficientes: nóminas, declaración de renta (según tabla IPREM + nº familiares)",
+      "Formulario EX-02 (lo presenta el reagrupante en España)"
+    ],
+    where_to_apply: [
+      { place: "Oficina de Extranjería del reagrupante en España", detail: "El residente en España inicia el trámite en Extranjería de su provincia con cita previa" },
+      { place: "Consulado de España en el país del familiar", detail: "Una vez aprobada la reagrupación, el familiar solicita el visado de residencia por reagrupación familiar" },
+      { place: "Extranjería o Comisaría (tras llegar a España)", detail: "El familiar solicita la TIE en el plazo de 1 mes desde su entrada en España" }
+    ],
     steps: [
       "El residente en España presenta la solicitud en Extranjería",
       "Obtiene autorización favorable",
@@ -530,6 +646,19 @@ export const PERMITS = {
       "Sin antecedentes penales en España ni en el país de origen",
       "Contrato de trabajo de al menos 1 año a jornada completa (o equivalente), O informe favorable de inserción social",
       "Vínculos familiares o informe de integración social del ayuntamiento"
+    ],
+    documents: [
+      "Pasaporte en vigor (original + fotocopia)",
+      "Certificado de empadronamiento continuo (histórico de los 3 años)",
+      "Certificado de antecedentes penales de España y del país de origen",
+      "Informe de integración social emitido por el Ayuntamiento o Comunidad Autónoma (o contrato de trabajo de mín. 1 año)",
+      "Pruebas adicionales de estancia: facturas, recibos bancarios, informes médicos, contratos de alquiler",
+      "Formulario EX-10"
+    ],
+    where_to_apply: [
+      { place: "Oficina de Extranjería de tu provincia", detail: "Presentas la solicitud presencialmente con cita previa en sede.gob.es" },
+      { place: "Sede electrónica (con certificado digital)", detail: "Puedes enviar la solicitud online en sede.administracionespublicas.gob.es" },
+      { place: "Ayuntamiento (para el informe previo)", detail: "Primero ve al ayuntamiento de tu municipio para solicitar el informe de integración social, que tarda varias semanas" }
     ],
     steps: [
       "Reúne pruebas de estancia de 3 años",
@@ -561,6 +690,18 @@ export const PERMITS = {
       "Sin antecedentes penales",
       "La relación laboral debe probarse con resolución judicial, acta de inspección de trabajo, etc."
     ],
+    documents: [
+      "Pasaporte en vigor (original + fotocopia)",
+      "Certificado de empadronamiento (acreditando 2 años de estancia)",
+      "Certificado de antecedentes penales de España y del país de origen",
+      "Acreditación de relaciones laborales: resolución judicial, acta de Inspección de Trabajo, o sentencia que reconozca la relación laboral",
+      "Formulario EX-10"
+    ],
+    where_to_apply: [
+      { place: "Inspección de Trabajo (paso previo)", detail: "Si no tienes acta de inspección, puedes presentar denuncia ante la Inspección de Trabajo de tu provincia para que acrediten la relación laboral" },
+      { place: "Oficina de Extranjería de tu provincia", detail: "Presentas la solicitud de arraigo laboral con cita previa en sede.gob.es" },
+      { place: "Sede electrónica", detail: "Tramitación online posible con certificado digital en sede.administracionespublicas.gob.es" }
+    ],
     steps: [
       "Reúne pruebas de relación laboral",
       "Presenta denuncia ante Inspección de Trabajo si es necesario",
@@ -590,6 +731,18 @@ export const PERMITS = {
       "Sin antecedentes penales",
       "Certificado de nacimiento del menor / documentación de filiación"
     ],
+    documents: [
+      "Pasaporte en vigor del solicitante (original + fotocopia)",
+      "Certificado de nacimiento del hijo/a español (con apostilla si aplica)",
+      "DNI del hijo/a español o libro de familia que acredite la filiación",
+      "Certificado de antecedentes penales de España y del país de origen",
+      "Formulario EX-10",
+      "Si eres hijo/a de español: certificado de nacimiento del padre/madre español (original)"
+    ],
+    where_to_apply: [
+      { place: "Oficina de Extranjería de tu provincia", detail: "Solicitud presencial con cita previa en sede.gob.es. No necesitas haber vivido en España un tiempo mínimo." },
+      { place: "Sede electrónica", detail: "Tramitación online con certificado digital en sede.administracionespublicas.gob.es" }
+    ],
     steps: [
       "Reúne la documentación familiar",
       "Presenta solicitud en Extranjería",
@@ -618,6 +771,18 @@ export const PERMITS = {
       "No haber estado fuera de España más de 10 meses en total (ni más de 6 seguidos)",
       "Pasaporte en vigor",
       "Sin antecedentes penales recientes"
+    ],
+    documents: [
+      "Pasaporte en vigor (original + fotocopia)",
+      "TIE actual o último permiso de residencia",
+      "Certificado de empadronamiento histórico (5 años)",
+      "Historial de permisos de residencia anteriores",
+      "Certificado de antecedentes penales actualizado",
+      "Formulario EX-11"
+    ],
+    where_to_apply: [
+      { place: "Oficina de Extranjería de tu provincia", detail: "Con cita previa. Presenta la solicitud hasta 60 días antes de que caduque tu permiso actual." },
+      { place: "Sede electrónica (recomendado)", detail: "Tramitación online en sede.administracionespublicas.gob.es con certificado digital o cl@ve" }
     ],
     steps: [
       "Presenta la solicitud 60 días antes de que caduque tu último permiso",
@@ -649,6 +814,20 @@ export const PERMITS = {
       "Superar el examen DELE A2 (si no eres de país hispanohablante)",
       "Suficiente grado de integración en la sociedad española"
     ],
+    documents: [
+      "Pasaporte en vigor (original + fotocopia)",
+      "Certificado de nacimiento con apostilla y traducción jurada",
+      "Certificado de empadronamiento histórico",
+      "Certificado de antecedentes penales de España y del país de origen",
+      "Diploma DELE A2 o superior (si no eres de país hispanohablante)",
+      "Diploma CCSE (Conocimientos Constitucionales y Socioculturales de España) — examen del Instituto Cervantes",
+      "En su caso: certificado de matrimonio con español/a, libro de familia"
+    ],
+    where_to_apply: [
+      { place: "Ministerio de Justicia (sede electrónica)", detail: "La solicitud se presenta online en mjusticia.gob.es — es obligatorio hacerlo de forma telemática" },
+      { place: "Instituto Cervantes (exámenes previos)", detail: "CCSE y DELE A2 se realizan en el Instituto Cervantes. Hay que inscribirse con antelación en cervantes.es" },
+      { place: "Registro Civil de tu domicilio (fase final)", detail: "Una vez aprobada la solicitud, debes comparecer para la jura/promesa de la Constitución" }
+    ],
     steps: [
       "Verifica que cumples el tiempo de residencia requerido",
       "Aprueba los exámenes CCSE y DELE A2 (si aplica)",
@@ -677,6 +856,17 @@ export const PERMITS = {
       "Tener un permiso de residencia en vigor",
       "Cumplir los requisitos del nuevo tipo de permiso",
       "Documentación específica según la modificación"
+    ],
+    documents: [
+      "TIE actual en vigor (original + fotocopia)",
+      "Pasaporte en vigor",
+      "Documentación específica del nuevo tipo de permiso al que modificas",
+      "Formulario EX-03 (cuenta ajena), EX-07 (cuenta propia) u otros según el tipo",
+      "Justificante de pago de la tasa correspondiente"
+    ],
+    where_to_apply: [
+      { place: "Oficina de Extranjería de tu provincia", detail: "Con cita previa. Puedes presentar mientras tu permiso esté en vigor." },
+      { place: "Sede electrónica", detail: "Algunos tipos de modificación se pueden tramitar online en sede.administracionespublicas.gob.es" }
     ],
     steps: [
       "Identifica a qué tipo de permiso puedes cambiar",

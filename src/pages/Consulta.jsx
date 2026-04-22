@@ -74,7 +74,7 @@ export default function Consulta() {
         {history.length > 0 && !isComplete ? (
           <button
             onClick={handleBack}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+            className="flex items-center gap-2 text-[#1a3fd4] hover:text-[#1a3fd4]/70 transition-colors font-medium"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm font-medium">Anterior</span>
@@ -85,7 +85,7 @@ export default function Consulta() {
         {Object.keys(answers).length > 0 && (
           <button
             onClick={handleReset}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+            className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors"
           >
             <RotateCcw className="w-4 h-4" />
             <span className="text-sm font-medium">Empezar de nuevo</span>
@@ -105,14 +105,14 @@ export default function Consulta() {
         ) : (
           <div key="results">
             <div className="mb-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full mb-4">
-                <span className="text-sm font-medium">✅ Consulta completada</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C9A800]/10 text-[#C9A800] rounded-full mb-4">
+                <span className="text-sm font-semibold">✅ Consulta completada</span>
               </div>
-              <h2 className="font-heading text-3xl font-bold text-primary mb-2">
+              <h2 className="font-heading text-3xl font-bold text-[#1a3fd4] mb-2">
                 Tus opciones de residencia
               </h2>
-              <p className="text-muted-foreground">
-                Según tu situación, estos son los permisos que podrías solicitar:
+              <p className="text-gray-500">
+                Según tu situación, estos son los permisos que podrías solicitar. Haz clic para ver requisitos, documentación y dónde presentarlos:
               </p>
             </div>
 
@@ -128,12 +128,12 @@ export default function Consulta() {
             </div>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Button onClick={handleReset} variant="outline" className="rounded-xl gap-2">
+              <Button onClick={handleReset} className="rounded-xl gap-2 bg-[#1a3fd4] hover:bg-[#1a3fd4]/90 text-white">
                 <RotateCcw className="w-4 h-4" />
                 Hacer otra consulta
               </Button>
               <Link to="/permisos">
-                <Button variant="ghost" className="rounded-xl">
+                <Button variant="outline" className="rounded-xl border-[#1a3fd4]/30 text-[#1a3fd4]">
                   Ver todos los permisos
                 </Button>
               </Link>

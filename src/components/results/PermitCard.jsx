@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Clock, Euro, Calendar, ChevronRight } from "lucide-react";
+import { Clock, Euro, Calendar, ChevronRight, FileText } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export default function PermitCard({ permit, index, onClick }) {
@@ -10,37 +10,50 @@ export default function PermitCard({ permit, index, onClick }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
       onClick={onClick}
-      className="bg-card rounded-2xl border border-border/60 p-6 hover:border-secondary/40 hover:shadow-lg transition-all duration-300 cursor-pointer group"
+      className="bg-white rounded-2xl border-2 border-[#1a3fd4]/15 p-6 hover:border-[#C9A800]/60 hover:shadow-xl transition-all duration-300 cursor-pointer group"
     >
-      <div className="flex items-start justify-between mb-4">
-        <div>
-          <Badge className={`${permit.badgeColor} border-0 text-xs font-medium mb-3`}>
-            {permit.badge}
-          </Badge>
-          <h3 className="font-heading text-xl font-semibold text-primary leading-tight">
-            {permit.title}
-          </h3>
-        </div>
-        <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-secondary group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" />
+      <div className="flex items-start justify-between mb-3">
+        <Badge className={`${permit.badgeColor} border-0 text-xs font-semibold`}>
+          {permit.badge}
+        </Badge>
+        <ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-[#C9A800] group-hover:translate-x-1 transition-all flex-shrink-0" />
       </div>
 
-      <p className="text-muted-foreground text-sm leading-relaxed mb-5 line-clamp-2">
+      <h3 className="font-heading text-xl font-bold text-[#1a3fd4] leading-tight mb-3">
+        {permit.title}
+      </h3>
+
+      <p className="text-gray-500 text-sm leading-relaxed mb-5 line-clamp-2">
         {permit.description}
       </p>
 
-      <div className="grid grid-cols-3 gap-3">
-        <div className="flex items-center gap-1.5">
-          <Calendar className="w-3.5 h-3.5 text-secondary" />
-          <span className="text-xs text-muted-foreground truncate">{permit.duration.split('(')[0].trim()}</span>
+      <div className="grid grid-cols-3 gap-2 pt-4 border-t border-gray-100">
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-1">
+            <Calendar className="w-3 h-3 text-[#C9A800]" />
+            <span className="text-xs text-gray-400 font-medium">Duración</span>
+          </div>
+          <span className="text-xs text-gray-600 font-semibold truncate">{permit.duration.split('(')[0].trim()}</span>
         </div>
-        <div className="flex items-center gap-1.5">
-          <Euro className="w-3.5 h-3.5 text-secondary" />
-          <span className="text-xs text-muted-foreground truncate">{permit.cost.replace('Tasa aproximada: ', '').replace('Tasa: ', '')}</span>
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-1">
+            <Euro className="w-3 h-3 text-[#C9A800]" />
+            <span className="text-xs text-gray-400 font-medium">Tasa</span>
+          </div>
+          <span className="text-xs text-gray-600 font-semibold truncate">{permit.cost.replace('Tasa aproximada: ', '').replace('Tasa: ', '')}</span>
         </div>
-        <div className="flex items-center gap-1.5">
-          <Clock className="w-3.5 h-3.5 text-secondary" />
-          <span className="text-xs text-muted-foreground truncate">{permit.timeline}</span>
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-1">
+            <Clock className="w-3 h-3 text-[#C9A800]" />
+            <span className="text-xs text-gray-400 font-medium">Plazo</span>
+          </div>
+          <span className="text-xs text-gray-600 font-semibold truncate">{permit.timeline}</span>
         </div>
+      </div>
+
+      <div className="mt-4 pt-4 border-t border-gray-100 flex items-center gap-2 text-[#1a3fd4] group-hover:text-[#C9A800] transition-colors">
+        <FileText className="w-3.5 h-3.5" />
+        <span className="text-xs font-semibold">Ver requisitos, documentación y dónde presentarlo →</span>
       </div>
     </motion.div>
   );

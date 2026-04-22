@@ -35,18 +35,18 @@ export default function Permisos() {
         animate={{ opacity: 1, y: 0 }}
         className="mb-10"
       >
-        <h1 className="font-heading text-3xl sm:text-4xl font-bold text-primary mb-3">
+        <h1 className="font-heading text-3xl sm:text-4xl font-bold text-[#1a3fd4] mb-3">
           Todos los permisos de residencia
         </h1>
-        <p className="text-muted-foreground text-lg max-w-2xl">
-          Consulta la información detallada de cada tipo de permiso de residencia disponible en España.
+        <p className="text-gray-500 text-lg max-w-2xl">
+          Haz clic en cualquier permiso para ver requisitos, documentación necesaria y dónde presentarla.
         </p>
       </motion.div>
 
       <Tabs value={activeCategory} onValueChange={setActiveCategory} className="mb-8">
-        <TabsList className="bg-muted">
+        <TabsList className="bg-gray-100">
           {categories.map((cat) => (
-            <TabsTrigger key={cat.value} value={cat.value} className="font-medium">
+            <TabsTrigger key={cat.value} value={cat.value} className="font-semibold data-[state=active]:bg-[#1a3fd4] data-[state=active]:text-white">
               {cat.label}
             </TabsTrigger>
           ))}
