@@ -18,9 +18,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-heading font-bold text-sm">R</span>
+            <span className="text-primary-foreground font-heading font-bold text-sm">N</span>
           </div>
-          <span className="font-heading font-bold text-lg text-primary">ResiGuía</span>
+          <span className="font-heading font-bold text-lg text-primary">NIE/IA</span>
         </Link>
 
         {/* Desktop nav */}

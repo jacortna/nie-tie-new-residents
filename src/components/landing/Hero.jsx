@@ -27,7 +27,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full mb-8">
-              <span className="text-sm font-medium text-secondary">🇪🇸 Tu guía de permisos en España</span>
+              <span className="text-sm font-medium text-secondary">🇪🇸 NIE/IA · Tu guía de permisos en España</span>
             </div>
           </motion.div>
 
