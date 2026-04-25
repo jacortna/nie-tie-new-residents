@@ -10,20 +10,24 @@ const features = [
   { icon: CheckCircle, text: "Guía paso a paso" },
 ];
 
-// Fingerprint SVG logo matching the brand
-function FingerprintLogo({ className = "" }) {
+function FingerprintSVG({ className = "" }) {
   return (
-    <svg className={className} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="40" cy="40" r="38" stroke="#3B3FD8" strokeWidth="3" fill="none"/>
-      <path d="M40 14c-14.36 0-26 11.64-26 26 0 7.18 2.91 13.68 7.62 18.38" stroke="#3B3FD8" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-      <path d="M40 20c-11.05 0-20 8.95-20 20 0 5.52 2.24 10.52 5.86 14.14" stroke="#3B3FD8" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-      <path d="M40 26c-7.73 0-14 6.27-14 14 0 3.86 1.57 7.36 4.1 9.9" stroke="#3B3FD8" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-      <path d="M40 32c-4.42 0-8 3.58-8 8 0 2.21.9 4.21 2.34 5.66" stroke="#3B3FD8" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-      <circle cx="40" cy="40" r="3" fill="#3B3FD8"/>
-      <path d="M46 14.5c7.5 3.2 13.5 9.8 15.5 18" stroke="#3B3FD8" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-      <path d="M57 34c.67 2 1 4.1 1 6.3 0 4.5-1.5 8.6-4 11.9" stroke="#3B3FD8" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-      <path d="M51 23c2.5 2.5 4.2 5.8 4.8 9.5" stroke="#3B3FD8" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-      <path d="M48 40c0 4.42-3.58 8-8 8" stroke="#3B3FD8" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+    <svg className={className} viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Outer loops */}
+      <path d="M100 10 C50 10, 10 55, 10 110 C10 165, 50 210, 100 220 C150 210, 190 165, 190 110 C190 55, 150 10, 100 10Z" stroke="#2B2FAA" strokeWidth="5" fill="none" strokeLinecap="round"/>
+      <path d="M100 28 C62 28, 28 67, 28 110 C28 153, 62 192, 100 202 C138 192, 172 153, 172 110 C172 67, 138 28, 100 28Z" stroke="#2B2FAA" strokeWidth="4.5" fill="none" strokeLinecap="round"/>
+      <path d="M100 46 C72 46, 46 76, 46 110 C46 144, 72 180, 100 188 C128 180, 154 144, 154 110 C154 76, 128 46, 100 46Z" stroke="#2B2FAA" strokeWidth="4" fill="none" strokeLinecap="round"/>
+      <path d="M100 64 C82 64, 64 84, 64 110 C64 136, 82 162, 100 170 C118 162, 136 136, 136 110 C136 84, 118 64, 100 64Z" stroke="#2B2FAA" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+      <path d="M100 82 C90 82, 82 95, 82 110 C82 126, 90 140, 100 145 C110 140, 118 126, 118 110 C118 95, 110 82, 100 82Z" stroke="#2B2FAA" strokeWidth="3" fill="none" strokeLinecap="round"/>
+      {/* Center dot */}
+      <circle cx="100" cy="110" r="6" fill="#2B2FAA"/>
+      {/* Break lines for fingerprint effect */}
+      <path d="M10 105 Q20 100, 28 108" stroke="#2B2FAA" strokeWidth="4" fill="none" strokeLinecap="round"/>
+      <path d="M172 115 Q182 112, 190 118" stroke="#2B2FAA" strokeWidth="4" fill="none" strokeLinecap="round"/>
+      <path d="M46 145 Q55 150, 60 160" stroke="#2B2FAA" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+      <path d="M154 145 Q145 152, 142 162" stroke="#2B2FAA" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+      <path d="M64 170 Q72 176, 75 185" stroke="#2B2FAA" strokeWidth="3" fill="none" strokeLinecap="round"/>
+      <path d="M136 170 Q128 177, 126 186" stroke="#2B2FAA" strokeWidth="3" fill="none" strokeLinecap="round"/>
     </svg>
   );
 }
@@ -38,34 +42,31 @@ export default function Hero() {
           alt="España paisaje"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/65" />
       </div>
 
       <div className="w-full max-w-5xl mx-auto px-6 py-20 lg:py-28 flex flex-col items-center text-center">
 
-        {/* Brand header: fingerprint + separator + New Residents */}
+        {/* Logo block: fingerprint + gold line + NIE/IA + New Residents */}
         <motion.div
-          className="flex items-center gap-4 mb-3"
+          className="flex flex-col items-center mb-10"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
         >
-          <FingerprintLogo className="w-14 h-14 drop-shadow-lg" />
-          <div className="w-px h-12 bg-[#C9A800]" />
-          <span className="font-heading text-4xl sm:text-5xl font-bold text-[#C9A800] drop-shadow-md">
-            New Residents
+          {/* Fingerprint */}
+          <div className="w-28 h-32 mb-4 drop-shadow-[0_0_24px_rgba(43,47,170,0.5)]">
+            <FingerprintSVG className="w-full h-full" />
+          </div>
+          {/* Gold separator line */}
+          <div className="w-40 h-px bg-[#C9A800] mb-4" />
+          {/* NIE/IA */}
+          <span className="font-heading text-5xl sm:text-6xl font-bold text-[#C9A800] tracking-widest leading-none">
+            NIE/IA
           </span>
-        </motion.div>
-
-        {/* NIE/IA subtitle brand */}
-        <motion.div
-          className="mb-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <span className="text-white/80 text-sm tracking-widest uppercase font-medium">
-            powered by NIE/IA
+          {/* New Residents */}
+          <span className="font-heading text-xl sm:text-2xl font-semibold text-[#C9A800] tracking-wider mt-1">
+            New Residents
           </span>
         </motion.div>
 
@@ -123,28 +124,6 @@ export default function Hero() {
           ))}
         </motion.div>
       </div>
-
-      {/* Blue contact banner at bottom */}
-      <motion.div
-        className="w-full bg-[#1a3fd4]/90 backdrop-blur-sm py-6 px-6"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-      >
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-white">
-          <p className="text-base sm:text-lg font-medium leading-snug text-center sm:text-left">
-            Llegaste como turista y ves tu futuro aquí. ¿No sabes qué hacer? <span className="font-bold">¡Contáctanos!</span>
-          </p>
-          <div className="flex flex-col sm:items-end items-center gap-1 flex-shrink-0">
-            <a href="mailto:newresidents.sevilla@gmail.com" className="text-[#C9A800] font-semibold hover:underline text-sm sm:text-base">
-              newresidents.sevilla@gmail.com
-            </a>
-            <a href="tel:+34619181671" className="text-white font-bold text-lg hover:underline">
-              619 18 16 71
-            </a>
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 }
