@@ -81,7 +81,7 @@ export const QUESTIONS = [
       {
         value: "irregular",
         label: "Estoy en España en situación irregular",
-        description: "Sin papeles o con permiso caducado",
+        description: "Sin papeles o con permiso caducado. ¡Atención: hay regularización extraordinaria hasta junio 2026!",
         icon: "alert"
       },
       {
@@ -92,9 +92,15 @@ export const QUESTIONS = [
       },
       {
         value: "family_eu",
-        label: "Soy familiar de un ciudadano UE/español",
-        description: "Cónyuge, pareja, hijo/a o dependiente",
+        label: "Soy familiar de un ciudadano UE",
+        description: "Cónyuge, pareja, hijo/a o dependiente de ciudadano de otro país UE",
         icon: "heart"
+      },
+      {
+        value: "family_spanish",
+        label: "Soy familiar de un ciudadano/a español/a",
+        description: "Cónyuge, hijo/a menor 26 años o ascendiente directo de español/a",
+        icon: "flag"
       }
     ]
   },
@@ -273,7 +279,8 @@ export const PERMITS = {
     tips: [
       "Es obligatorio si vas a estar más de 3 meses",
       "El NIE que te dan es permanente",
-      "Los familiares NO comunitarios de ciudadanos UE tienen un proceso diferente"
+      "Los familiares NO comunitarios de ciudadanos UE tienen un proceso diferente (Tarjeta de Familiar UE, EX-19)",
+      "Novedad RD 316/2026: los familiares de ciudadanos españoles (hijos y ascendientes) ya pueden solicitar su autorización estando ambos en España, sin necesidad de tramitarlo desde el consulado"
     ]
   },
   eu_permanent: {
@@ -326,7 +333,7 @@ export const PERMITS = {
     duration: "5 años (renovable)",
     cost: "Tasa aproximada: 16 €",
     timeline: "1-3 meses",
-    description: "Para familiares NO comunitarios de un ciudadano de la UE que reside en España. Permite residir y trabajar sin necesidad de permiso de trabajo independiente.",
+    description: "Para familiares NO comunitarios de un ciudadano de la UE que reside en España. Permite residir y trabajar sin necesidad de permiso de trabajo independiente. Nota: si el familiar es de un ciudadano español (no de otro país UE), ver la autorización de residencia para familiares de español (art. 97 RD 1155/2024 modificado por RD 316/2026).",
     requirements: [
       "Pasaporte en vigor del familiar no comunitario",
       "Certificado de registro del ciudadano UE en España",
@@ -357,6 +364,53 @@ export const PERMITS = {
       "El ciudadano UE debe tener el certificado de registro vigente",
       "Permite trabajar en España sin permiso adicional",
       "También aplica para parejas de hecho registradas"
+    ]
+  },
+
+  family_spanish: {
+    id: "family_spanish",
+    title: "Residencia Temporal de Familiar de Español/a",
+    shortTitle: "Familiar de español/a",
+    category: "non_eu",
+    badge: "Familiar de español",
+    badgeColor: "bg-purple-100 text-purple-800",
+    duration: "2 años (primera), renovable por 2 años más",
+    cost: "Tasa aproximada: 10-16 €",
+    timeline: "1-3 meses",
+    description: "Autorización de residencia temporal para familiares de personas con nacionalidad española. Regulada en el artículo 97 del Reglamento de Extranjería (RD 1155/2024), modificado por el RD 316/2026 de 14 de abril para ampliar los familiares que pueden solicitarla estando ambos en España. Incluye: cónyuge/pareja, hijos menores de 26 años (o mayores con discapacidad), y ascendientes directos de primer grado a cargo.",
+    requirements: [
+      "Ser cónyuge o pareja de hecho registrada de español/a, O hijo/a menor de 26 años (o mayor con discapacidad) de español/a, O ascendiente directo (padre/madre) de español/a a cargo",
+      "El ciudadano español debe residir en España",
+      "Estar en España en el momento de la solicitud (novedad del RD 316/2026: tanto el extranjero como el español deben estar en España al momento de la solicitud para hijos y ascendientes)",
+      "Pasaporte en vigor",
+      "Sin antecedentes penales",
+      "Documentación que acredite el vínculo familiar"
+    ],
+    documents: [
+      "Pasaporte en vigor del solicitante (original + fotocopia de todas las páginas)",
+      "DNI o pasaporte del familiar español",
+      "Acreditación del vínculo: certificado de matrimonio, libro de familia, certificado de pareja de hecho, acta de nacimiento (apostillados y traducidos si son extranjeros)",
+      "Certificado de empadronamiento (del español y del solicitante en España)",
+      "Certificado de antecedentes penales del país de origen (apostillado y traducido)",
+      "Formulario EX-01 o el formulario correspondiente",
+      "Si se solicita autorización provisional para trabajar mientras se resuelve: acreditación según RD 316/2026 (no inadmisión previa del mismo tipo)"
+    ],
+    where_to_apply: [
+      { place: "Oficina de Extranjería de la provincia de residencia", detail: "Con cita previa en sede.gob.es. Desde el RD 316/2026, los hijos mayores de 26 años con discapacidad y los ascendientes también pueden solicitarlo estando en España" },
+      { place: "Sede electrónica", detail: "Tramitación online con certificado digital en sede.administracionespublicas.gob.es" }
+    ],
+    steps: [
+      "Reúne la documentación del vínculo familiar (apostillada y traducida si procede)",
+      "Solicita cita previa en Extranjería de tu provincia",
+      "Presenta la solicitud con toda la documentación",
+      "Tras admisión a trámite, puedes solicitar autorización provisional para trabajar (novedad RD 316/2026)",
+      "Espera resolución y solicita la TIE"
+    ],
+    tips: [
+      "Novedad RD 316/2026 (desde 16/04/2026): los hijos menores de 26 años y los ascendientes directos de primer grado ya pueden solicitar la autorización estando ambos (solicitante y español) en España, sin necesidad de ir al consulado",
+      "La autorización provisional de trabajo se concede desde la admisión a trámite y hasta la resolución",
+      "Si el familiar es de un ciudadano de otro país UE (no español), el trámite es la Tarjeta de Familiar UE (EX-19), no este",
+      "Este permiso es diferente al arraigo familiar: el arraigo familiar es para extranjeros con hijos españoles, no para familiares de españoles"
     ]
   },
 
@@ -628,6 +682,56 @@ export const PERMITS = {
       "Necesitas vivienda adecuada certificada",
       "Los ingresos mínimos dependen del tamaño de la familia",
       "Los ascendientes solo pueden reagruparse si eres residente de larga duración"
+    ]
+  },
+  arraigo_extraordinario: {
+    id: "arraigo_extraordinario",
+    title: "Arraigo Extraordinario (RD 316/2026)",
+    shortTitle: "Arraigo extraordinario",
+    category: "non_eu",
+    badge: "🆕 Regularización 2026",
+    badgeColor: "bg-emerald-100 text-emerald-800",
+    duration: "1 año (renovable → puede modificarse a trabajo u otros permisos)",
+    cost: "Tasa según Orden PJC/617/2025",
+    timeline: "En tramitación — plazo de solicitud: 16 abril al 30 junio 2026",
+    description: "Regularización extraordinaria aprobada por el Real Decreto 316/2026 (BOE 15/04/2026), en vigor desde el 16 de abril de 2026. Permite regularizar la situación de personas extranjeras en situación irregular que llegaron a España antes del 1 de enero de 2026. Autoriza a trabajar en cualquier sector y lugar de España. Plazo de solicitud abierto hasta el 30 de junio de 2026.",
+    requirements: [
+      "Ser mayor de edad",
+      "Encontrarse en España antes del 1 de enero de 2026 y en el momento de presentar la solicitud",
+      "NO ser titular de una autorización de estancia o residencia vigente ni tener procedimientos de estancia/residencia en trámite",
+      "Haber permanecido en España de forma ininterrumpida durante los 5 meses anteriores a la solicitud",
+      "Carecer de antecedentes penales en España y en los países donde residiste los 5 últimos años",
+      "No representar amenaza para el orden público, seguridad o salud pública",
+      "Cumplir AL MENOS UNO de estos supuestos adicionales: (A) haber trabajado o tener oferta/contrato de trabajo de más de 90 días/año, (B) tener unidad familiar con hijos menores o mayores con discapacidad o ascendientes de primer grado convivientes, o (C) estar en situación de vulnerabilidad acreditada por servicios sociales o entidades del RECEX"
+    ],
+    documents: [
+      "Solicitud en modelo oficial EX-32, cumplimentada y firmada",
+      "Copia completa del pasaporte, cédula de inscripción o título de viaje (en vigor o caducado, todas las páginas)",
+      "Documentación que acredite estar en España antes del 1/1/2026 (cualquier documento con nombre y fecha: padrón, facturas, informes médicos, contratos, multas, denegaciones previas, etc.)",
+      "Documentación de permanencia ininterrumpida de los últimos 5 meses (cualquier prueba válida en derecho con datos personales identificables)",
+      "Certificado de antecedentes penales de España y del país/países de residencia de los últimos 5 años (apostillado si es extranjero)",
+      "Según el supuesto elegido: contrato de trabajo o declaración responsable (supuesto A) / documentación de la unidad familiar (supuesto B) / certificado de vulnerabilidad (supuesto C)"
+    ],
+    where_to_apply: [
+      { place: "Vía telemática (preferente) — 24/7 durante todo el plazo", detail: "A través del portal del Ministerio de Inclusión: con certificado electrónico, cl@ve, mediante abogado/gestor habilitado o entidad del Registro de Colaboradores de Extranjería (RECEX)" },
+      { place: "Vía presencial con cita previa (hasta 30 junio 2026)", detail: "Oficinas de la Seguridad Social (16-19h), Correos (8:30-17:30h) u Oficinas de Extranjería (16-19h). Cita previa en el portal de la Regularización o llamando al 060" },
+      { place: "Asesoramiento gratuito", detail: "Las entidades del Registro de Colaboradores de Extranjería (sindicatos, ONG) ofrecen asesoramiento y representación gratuitos" }
+    ],
+    steps: [
+      "Reúne toda la documentación acreditativa de tu estancia en España desde antes del 1/1/2026",
+      "Obtén el certificado de antecedentes penales (si no lo recibes en 1 mes, presenta el Anexo I-1 e I-2 para recabarlo por vía diplomática)",
+      "Decide el supuesto que vas a acreditar: contrato/oferta de trabajo, unidad familiar o vulnerabilidad",
+      "Solicita cita previa o accede al portal telemático del Ministerio antes del 30 de junio de 2026",
+      "Presenta la solicitud EX-32 con toda la documentación",
+      "Una vez admitida a trámite, recibes una comunicación que ya te autoriza a trabajar en cualquier sector mientras se resuelve"
+    ],
+    tips: [
+      "⚠️ PLAZO: solo hasta el 30 de junio de 2026. Actúa con urgencia si cumples los requisitos",
+      "La comunicación de inicio del procedimiento ya permite trabajar legalmente en cualquier sector y en todo el territorio nacional",
+      "Se aceptan documentos acreditativos de estancia incluso los denegatorios: solicitudes de asilo previas, expedientes de expulsión, acuerdos de devolución, etc.",
+      "Los familiares (cónyuge, pareja, hijos, ascendientes) que convivan pueden solicitar simultáneamente si cumplen los requisitos",
+      "Si tienes hijos menores españoles o eres familiar de ciudadano español/UE, hay otras vías específicas posiblemente más sencillas",
+      "Las personas con solicitud de protección internacional pendiente de resolver también pueden acogerse (disposición adicional vigésima del RD 1155/2024 modificada)"
     ]
   },
   arraigo_social: {
@@ -902,9 +1006,14 @@ export function getRecommendedPermits(answers) {
   }
 
   if (nationality_type === "non_eu") {
-    // Family of EU citizen
+    // Family of EU citizen (other EU country, not Spanish)
     if (non_eu_situation === "family_eu") {
       return ["eu_family_card"];
+    }
+
+    // Family of Spanish citizen
+    if (non_eu_situation === "family_spanish") {
+      return ["family_spanish", "arraigo_familiar"];
     }
 
     // Coming from abroad
@@ -931,24 +1040,25 @@ export function getRecommendedPermits(answers) {
     if (non_eu_situation === "tourist") {
       switch (tourist_purpose) {
         case "stay_work":
-          return ["work_employee", "work_self", "digital_nomad"];
+          return ["arraigo_extraordinario", "work_employee", "work_self", "digital_nomad"];
         case "stay_study":
           return ["student"];
         case "stay_family":
-          return ["arraigo_familiar", "family_reunification"];
+          return ["family_spanish", "arraigo_familiar", "family_reunification"];
         default:
-          return ["student", "work_employee"];
+          return ["arraigo_extraordinario", "student", "work_employee"];
       }
     }
 
     // Irregular situation
     if (non_eu_situation === "irregular") {
+      // RD 316/2026: arraigo extraordinario available until 30 June 2026 for all who arrived before 1/1/2026
       if (irregular_time === "more_3") {
-        return ["arraigo_social", "arraigo_laboral", "arraigo_familiar"];
+        return ["arraigo_extraordinario", "arraigo_social", "arraigo_laboral", "arraigo_familiar"];
       } else if (irregular_time === "1_to_3") {
-        return ["arraigo_laboral", "arraigo_familiar"];
+        return ["arraigo_extraordinario", "arraigo_laboral", "arraigo_familiar"];
       } else {
-        return ["arraigo_familiar"];
+        return ["arraigo_extraordinario", "arraigo_familiar"];
       }
     }
 
