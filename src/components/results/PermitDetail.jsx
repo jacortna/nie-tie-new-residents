@@ -6,6 +6,7 @@ import {
   CheckCircle2, ListOrdered, Lightbulb, FileText,
   MapPin, FolderOpen
 } from "lucide-react";
+import ChecklistSection from "./ChecklistSection";
 
 function SectionBlock({ icon: Icon, title, color, children }) {
   const colors = {
@@ -72,32 +73,22 @@ export default function PermitDetail({ permit, onBack }) {
         ))}
       </div>
 
-      {/* Requirements */}
-      <SectionBlock icon={CheckCircle2} title="Requisitos que debes cumplir" color="blue">
-        <ul className="space-y-3">
-          {permit.requirements.map((req, idx) => (
-            <li key={idx} className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-full bg-[#1a3fd4] flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-white text-xs font-bold">{idx + 1}</span>
-              </div>
-              <span className="text-sm text-gray-700 leading-relaxed">{req}</span>
-            </li>
-          ))}
-        </ul>
-      </SectionBlock>
+      {/* Requirements — interactive checklist */}
+      <ChecklistSection
+        icon={CheckCircle2}
+        title="Requisitos que debes cumplir"
+        items={permit.requirements}
+        color="blue"
+      />
 
-      {/* Documents */}
+      {/* Documents — interactive checklist */}
       {permit.documents && permit.documents.length > 0 && (
-        <SectionBlock icon={FolderOpen} title="Documentación que debes presentar" color="gold">
-          <ul className="space-y-3">
-            {permit.documents.map((doc, idx) => (
-              <li key={idx} className="flex items-start gap-3">
-                <FileText className="w-4 h-4 text-[#C9A800] flex-shrink-0 mt-0.5" />
-                <span className="text-sm text-gray-700 leading-relaxed">{doc}</span>
-              </li>
-            ))}
-          </ul>
-        </SectionBlock>
+        <ChecklistSection
+          icon={FolderOpen}
+          title="Documentación que debes presentar"
+          items={permit.documents}
+          color="gold"
+        />
       )}
 
       {/* Where to present */}
