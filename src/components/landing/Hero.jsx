@@ -30,12 +30,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 -z-10">
-        <img
-          src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/5b247baed_infografia18.jpg"
-          alt="New Residents"
-          className="w-full h-full object-cover object-top"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/65" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1a3fd4] via-[#2B2FAA] to-[#0d1a6e]" />
       </div>
 
       <div className="w-full max-w-3xl mx-auto px-6 py-20 flex flex-col items-center text-center">
