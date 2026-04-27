@@ -50,11 +50,11 @@ export default function Hero() {
         </motion.div>
 
         {/* Heading */}
-        <motion.h1
-          className="font-heading text-3xl sm:text-5xl font-bold text-white leading-tight mb-5"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}>
+        <motion.h1 className="text-white mb-48 text-3xl font-bold leading-tight sm:text-5xl"
+
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}>
           
           Descubre qué permiso de residencia puedes solicitar en España
         </motion.h1>
