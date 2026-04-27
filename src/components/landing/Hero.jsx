@@ -33,7 +33,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#1a3fd4] via-[#2B2FAA] to-[#0d1a6e]" />
       </div>
 
-      <div className="mx-auto px-6 text-center w-full max-w-3xl flex flex-col items-center">
+      <div className="mx-auto text-center w-full max-w-3xl flex flex-col items-center">
 
         {/* Logo */}
         <motion.div
