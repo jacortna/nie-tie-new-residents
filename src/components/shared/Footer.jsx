@@ -20,13 +20,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
           <div>
-            <Link to="/" className="flex items-center gap-3 mb-4">
-              <FingerprintMini />
-              <div className="flex flex-col leading-none">
-                <div className="w-16 h-px bg-[#C9A800] mb-0.5" />
-                <span className="font-heading font-bold text-[#C9A800] text-xl tracking-widest">NIE/IA</span>
-                <span className="text-[#C9A800] text-xs font-semibold tracking-wide">New Residents</span>
-              </div>
+            <Link to="/" className="mb-4 inline-block">
+              <img
+                src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/c4ff7b0d6_Logo-copia.jpg"
+                alt="New Residents"
+                className="h-10 object-contain brightness-0 invert"
+              />
             </Link>
             <p className="text-white/60 text-sm max-w-sm leading-relaxed">
               Guía informativa sobre permisos de residencia en España.

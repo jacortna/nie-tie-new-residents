@@ -29,13 +29,12 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
-          <FingerprintMini />
-          <div className="flex flex-col leading-none">
-            <div className="w-20 h-px bg-[#C9A800] mb-0.5" />
-            <span className="font-heading font-bold text-[#C9A800] text-lg tracking-widest">NIE/IA</span>
-            <span className="text-[#C9A800] text-xs font-semibold tracking-wide">New Residents</span>
-          </div>
+        <Link to="/">
+          <img
+            src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/c4ff7b0d6_Logo-copia.jpg"
+            alt="New Residents"
+            className="h-10 object-contain"
+          />
         </Link>
 
         {/* Desktop nav */}

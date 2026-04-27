@@ -47,12 +47,11 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="w-20 h-24 mb-3 drop-shadow-[0_0_20px_rgba(43,47,170,0.5)]">
-            <FingerprintSVG className="w-full h-full" />
-          </div>
-          <div className="w-32 h-px bg-[#C9A800] mb-3" />
-          <span className="font-heading text-4xl font-bold text-[#C9A800] tracking-widest leading-none">NIE/IA</span>
-          <span className="font-heading text-base font-semibold text-[#C9A800] tracking-wider mt-1">New Residents</span>
+          <img
+            src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/c4ff7b0d6_Logo-copia.jpg"
+            alt="New Residents logo"
+            className="h-16 object-contain drop-shadow-lg"
+          />
         </motion.div>
 
         {/* Heading */}
