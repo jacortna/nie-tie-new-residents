@@ -42,9 +42,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}>
           
-          <img
-            src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/c4ff7b0d6_Logo-copia.jpg"
-            alt="New Residents logo" className="h-16 object-contain drop-shadow-lg hidden" />
+          
+
+          
 
           
         </motion.div>
