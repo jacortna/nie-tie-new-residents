@@ -28,7 +28,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm">
-      <div className="mx-auto px-6 py-5 rounded-lg max-w-7xl h-16 flex items-center justify-between">
+      <div className="mx-auto pt-5 pr-6 pb-4 pl-3 rounded-lg max-w-7xl h-16 flex items-center justify-between">
         <Link to="/">
           <img
             src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/c4ff7b0d6_Logo-copia.jpg"
