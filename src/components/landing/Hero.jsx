@@ -50,7 +50,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Heading */}
-        <motion.h1 className="text-white mb-48 text-3xl font-bold leading-tight sm:text-5xl"
+        <motion.h1 className="text-white mx-2 py-1 text-3xl font-bold leading-tight sm:text-5xl"
 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
