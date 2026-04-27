@@ -59,11 +59,11 @@ export default function Hero() {
           Descubre qué permiso de residencia puedes solicitar en España
         </motion.h1>
 
-        <motion.p
-          className="text-base sm:text-lg text-white/80 leading-relaxed mb-10 max-w-xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}>
+        <motion.p className="text-base sm:text-lg text-white/80 leading-relaxed mb-10 max-w-xl hidden"
+
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}>
           
           Responde unas preguntas sobre tu situación y te indicamos qué opciones tienes, con requisitos, documentación y plazos.
         </motion.p>
