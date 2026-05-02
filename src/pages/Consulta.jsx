@@ -1,17 +1,68 @@
-import React, { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useMemo, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, RotateCcw } from "lucide-react";
+import { ArrowLeft, RotateCcw, Loader2 } from "lucide-react";
 import { QUESTIONS, PERMITS, getRecommendedPermits } from "../lib/permitData";
 import QuestionCard from "../components/wizard/QuestionCard";
 import PermitCard from "../components/results/PermitCard";
 import PermitDetail from "../components/results/PermitDetail";
+import { base44 } from "@/api/base44Client";
 
 export default function Consulta() {
+  const location = useLocation();
   const [answers, setAnswers] = useState({});
   const [history, setHistory] = useState([]);
   const [selectedPermit, setSelectedPermit] = useState(null);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiError, setAiError] = useState(null);
+
+  useEffect(() => {
+    const situacion = location.state?.situacion;
+    if (!situacion) return;
+
+    setAiLoading(true);
+    setAiError(null);
+
+    base44.integrations.Core.InvokeLLM({
+      prompt: `Eres un experto en permisos de residencia en España. El usuario ha descrito su situación en texto libre. Debes analizar su texto y devolver un JSON con las respuestas al cuestionario de la app.
+
+Situación del usuario: "${situacion}"
+
+Las posibles respuestas son:
+- nationality_type: "eu" | "non_eu"
+- eu_situation (solo si eu): "work" | "study" | "enough_resources" | "family" | "long_term"
+- non_eu_situation (solo si non_eu): "no_visa" | "tourist" | "irregular" | "has_permit" | "family_eu" | "family_spanish"
+- non_eu_purpose (solo si non_eu_situation="no_visa"): "work_employee" | "work_self" | "study" | "digital_nomad" | "family_reunification" | "investor"
+- irregular_time (solo si non_eu_situation="irregular"): "less_1" | "1_to_3" | "more_3"
+- permit_type_held (solo si non_eu_situation="has_permit"): "renew" | "modify" | "long_term" | "nationality"
+- tourist_purpose (solo si non_eu_situation="tourist"): "stay_work" | "stay_study" | "stay_family"
+
+Devuelve SOLO el JSON con las claves relevantes según la situación, sin texto adicional.`,
+      response_json_schema: {
+        type: "object",
+        properties: {
+          nationality_type: { type: "string" },
+          eu_situation: { type: "string" },
+          non_eu_situation: { type: "string" },
+          non_eu_purpose: { type: "string" },
+          irregular_time: { type: "string" },
+          permit_type_held: { type: "string" },
+          tourist_purpose: { type: "string" },
+        }
+      }
+    }).then((result) => {
+      // Filter out null/undefined values
+      const cleaned = Object.fromEntries(
+        Object.entries(result).filter(([, v]) => v != null)
+      );
+      setAnswers(cleaned);
+      setAiLoading(false);
+    }).catch(() => {
+      setAiError("No pudimos analizar tu situación automáticamente. Por favor, responde las preguntas manualmente.");
+      setAiLoading(false);
+    });
+  }, []);
 
   // Get the current visible questions based on answers
   const visibleQuestions = useMemo(() => {
@@ -58,6 +109,17 @@ export default function Consulta() {
     setSelectedPermit(null);
   };
 
+  // AI loading state
+  if (aiLoading) {
+    return (
+      <div className="max-w-2xl mx-auto px-6 py-24 flex flex-col items-center gap-4 text-center">
+        <Loader2 className="w-10 h-10 text-[#C9A800] animate-spin" />
+        <h2 className="text-xl font-bold text-[#1a1a2e]">Analizando tu situación...</h2>
+        <p className="text-gray-500 text-sm">Estamos buscando los permisos que mejor se adaptan a ti.</p>
+      </div>
+    );
+  }
+
   // If viewing a permit detail
   if (selectedPermit) {
     return (
@@ -69,6 +131,11 @@ export default function Consulta() {
 
   return (
     <div className="max-w-2xl mx-auto px-6 py-12 min-h-[80vh]">
+      {aiError && (
+        <div className="mb-6 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-sm text-amber-800">
+          {aiError}
+        </div>
+      )}
       {/* Back / Reset controls */}
       <div className="flex items-center justify-between mb-6">
         {history.length > 0 && !isComplete ? (
