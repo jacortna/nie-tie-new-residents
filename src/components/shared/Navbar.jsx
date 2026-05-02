@@ -27,13 +27,13 @@ export default function Navbar() {
   const location = useLocation();
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#fdf6e3]/95 backdrop-blur-xl border-b border-[#e8d89a]/40 shadow-sm">
-      <div className="mx-auto pt-3 pr-6 pb-3 pl-4 max-w-7xl flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5">
+    <nav className="sticky top-0 z-50 bg-[#fdf6e3] border-b border-[#e8d89a]/30">
+      <div className="mx-auto pt-3 pr-5 pb-3 pl-4 max-w-7xl flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-3">
           <FingerprintMini />
-          <div className="flex flex-col leading-none">
-            <span className="text-[#1a1a2e] font-extrabold text-xl tracking-tight">NIE/IA</span>
-            <span className="text-[#C9A800] font-semibold text-xs tracking-wide">New Resident</span>
+          <div className="flex flex-col leading-tight">
+            <span className="text-[#1a1a2e] font-black text-2xl tracking-tight leading-none">NIE/IA</span>
+            <span className="text-[#C9A800] font-semibold text-xs tracking-widest uppercase leading-none mt-0.5">New Resident</span>
           </div>
         </Link>
 

@@ -15,7 +15,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-[#fdf6e3] via-[#faf0d0] to-[#f5e6b8] px-4 pt-10 pb-16 flex flex-col">
+    <section className="min-h-screen px-4 pt-10 pb-16 flex flex-col" style={{background: 'linear-gradient(160deg, #fdf6e3 0%, #f5e0a0 40%, #f0d080 70%, #fdf6e3 100%)'}}>
       <div className="max-w-lg mx-auto w-full flex flex-col gap-6">
 
         {/* Heading */}
@@ -25,15 +25,12 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
         >
           <h1 className="text-[#1a1a2e] text-4xl sm:text-5xl font-extrabold leading-tight mb-3">
-            Tu futuro en{" "}
-            <span className="text-[#C9A800]">España</span>
-            <br />comienza aquí.
-            <br />Encuentra el{" "}
-            <span className="text-[#C9A800]">camino</span>
-            <br />
+            Tu{" "}<span className="text-[#C9A800]">futuro en España</span><br />
+            comienza aquí.<br />
+            Encuentra el{" "}<span className="text-[#C9A800]">camino</span><br />
             <span className="text-[#C9A800]">para hacerlo realidad.</span>
           </h1>
-          <p className="text-[#444] text-base leading-relaxed">
+          <p className="text-[#555] text-base leading-relaxed">
             Tus sueños merecen un plan claro y alcanzable.<br />
             Te ayudamos gratis a encontrarlo para ti.
           </p>
@@ -64,7 +61,7 @@ export default function Hero() {
           <button
             onClick={handleAnalizar}
             disabled={!situacion.trim()}
-            className="mt-3 w-full flex items-center justify-center gap-2 bg-[#C9A800] hover:bg-[#b89700] disabled:opacity-50 disabled:cursor-not-allowed text-black font-bold text-base rounded-xl py-3.5 transition-colors"
+            className="mt-3 w-full flex items-center justify-center gap-2 bg-[#C9A800] hover:bg-[#b89600] disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold text-lg rounded-2xl py-4 transition-colors shadow-md"
           >
             Analizar mi situación <ArrowRight className="w-5 h-5" />
           </button>
