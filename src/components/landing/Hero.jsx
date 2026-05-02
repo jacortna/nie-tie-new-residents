@@ -1,113 +1,127 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageSquare, Search, FileText } from "lucide-react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ArrowRight, MessageSquare, List, Zap, Shield, RefreshCw, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 
-const steps = [
-{ icon: MessageSquare, label: "Cuéntanos tu situación" },
-{ icon: Search, label: "Analizamos tu caso" },
-{ icon: FileText, label: "Recibe tu guía" }];
-
-
-function FingerprintSVG({ className = "" }) {
-  return (
-    <svg className={className} viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 10 C50 10, 10 55, 10 110 C10 165, 50 210, 100 220 C150 210, 190 165, 190 110 C190 55, 150 10, 100 10Z" stroke="#2B2FAA" strokeWidth="5" fill="none" strokeLinecap="round" />
-      <path d="M100 28 C62 28, 28 67, 28 110 C28 153, 62 192, 100 202 C138 192, 172 153, 172 110 C172 67, 138 28, 100 28Z" stroke="#2B2FAA" strokeWidth="4.5" fill="none" strokeLinecap="round" />
-      <path d="M100 46 C72 46, 46 76, 46 110 C46 144, 72 180, 100 188 C128 180, 154 144, 154 110 C154 76, 128 46, 100 46Z" stroke="#2B2FAA" strokeWidth="4" fill="none" strokeLinecap="round" />
-      <path d="M100 64 C82 64, 64 84, 64 110 C64 136, 82 162, 100 170 C118 162, 136 136, 136 110 C136 84, 118 64, 100 64Z" stroke="#2B2FAA" strokeWidth="3.5" fill="none" strokeLinecap="round" />
-      <path d="M100 82 C90 82, 82 95, 82 110 C82 126, 90 140, 100 145 C110 140, 118 126, 118 110 C118 95, 110 82, 100 82Z" stroke="#2B2FAA" strokeWidth="3" fill="none" strokeLinecap="round" />
-      <circle cx="100" cy="110" r="6" fill="#2B2FAA" />
-      <path d="M10 105 Q20 100, 28 108" stroke="#2B2FAA" strokeWidth="4" fill="none" strokeLinecap="round" />
-      <path d="M172 115 Q182 112, 190 118" stroke="#2B2FAA" strokeWidth="4" fill="none" strokeLinecap="round" />
-    </svg>);
-
-}
-
 export default function Hero() {
+  const [situacion, setSituacion] = useState("");
+  const navigate = useNavigate();
+  const MAX = 600;
+
+  const handleAnalizar = () => {
+    if (situacion.trim()) {
+      navigate("/consulta", { state: { situacion } });
+    }
+  };
+
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a3fd4] via-[#2B2FAA] to-[#0d1a6e]" />
-      </div>
-
-      <div className="mx-2 text-center w-full max-w-3xl flex flex-col items-center">
-
-        {/* Logo */}
-        <motion.div
-          className="flex flex-col items-center mb-10"
-          initial={{ opacity: 0, y: -16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}>
-          
-          
-
-          
-
-          
-        </motion.div>
+    <section className="min-h-screen bg-gradient-to-br from-[#fdf6e3] via-[#faf0d0] to-[#f5e6b8] px-4 pt-10 pb-16 flex flex-col">
+      <div className="max-w-lg mx-auto w-full flex flex-col gap-6">
 
         {/* Heading */}
-        <motion.h1 className="text-white mx-2 py-1 text-3xl font-bold leading-tight sm:text-5xl"
-
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}>
-          
-          Descubre qué permiso de residencia puedes solicitar en España
-        </motion.h1>
-
-        
-
-
-
-
-
-
-        
-
-        {/* CTAs */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-3 mb-14"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}>
-          
-          <Link to="/consulta">
-            <Button size="lg" className="h-13 px-8 text-base font-semibold gap-2 bg-[#C9A800] hover:bg-[#b89700] text-black rounded-xl shadow-lg">
-              Comenzar consulta
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-          </Link>
-          <Link to="/permisos">
-            <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold rounded-xl border-white/40 text-white hover:bg-white/10 bg-transparent">
-              Ver todos los permisos
-            </Button>
-          </Link>
+          transition={{ duration: 0.5 }}
+        >
+          <h1 className="text-[#1a1a2e] text-4xl sm:text-5xl font-extrabold leading-tight mb-3">
+            Tu futuro en{" "}
+            <span className="text-[#C9A800]">España</span>
+            <br />comienza aquí.
+            <br />Encuentra el{" "}
+            <span className="text-[#C9A800]">camino</span>
+            <br />
+            <span className="text-[#C9A800]">para hacerlo realidad.</span>
+          </h1>
+          <p className="text-[#444] text-base leading-relaxed">
+            Tus sueños merecen un plan claro y alcanzable.<br />
+            Te ayudamos gratis a encontrarlo para ti.
+          </p>
         </motion.div>
 
-        {/* Steps */}
+        {/* Situation box */}
         <motion.div
-          className="flex flex-col sm:flex-row items-center gap-3 sm:gap-0"
+          className="bg-white rounded-2xl shadow-md p-5"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <MessageSquare className="w-5 h-5 text-[#1a3fd4]" />
+            <span className="font-bold text-[#1a1a2e] text-sm">Escribe tu situación actual</span>
+          </div>
+          <div className="relative">
+            <textarea
+              value={situacion}
+              onChange={(e) => setSituacion(e.target.value.slice(0, MAX))}
+              placeholder="Ejemplo: Soy colombiana, llevo 6 meses en España trabajando sin contrato y alquilo una habitación."
+              className="w-full rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-700 placeholder-gray-400 p-3 resize-none focus:outline-none focus:ring-2 focus:ring-[#C9A800]/40 min-h-[100px]"
+            />
+            <span className="absolute bottom-2 right-3 text-xs text-gray-400">
+              {situacion.length}/{MAX}
+            </span>
+          </div>
+          <button
+            onClick={handleAnalizar}
+            disabled={!situacion.trim()}
+            className="mt-3 w-full flex items-center justify-center gap-2 bg-[#C9A800] hover:bg-[#b89700] disabled:opacity-50 disabled:cursor-not-allowed text-black font-bold text-base rounded-xl py-3.5 transition-colors"
+          >
+            Analizar mi situación <ArrowRight className="w-5 h-5" />
+          </button>
+        </motion.div>
+
+        {/* Alternative: wizard */}
+        <motion.button
+          onClick={() => navigate("/consulta")}
+          className="bg-[#fdf0c0] border border-[#C9A800]/30 rounded-2xl p-4 flex items-center justify-between gap-4 hover:bg-[#fce97a]/30 transition-colors text-left"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#C9A800]/20 flex items-center justify-center flex-shrink-0">
+              <List className="w-5 h-5 text-[#b89700]" />
+            </div>
+            <div>
+              <p className="font-bold text-[#1a1a2e] text-sm">¿Prefieres responder preguntas definidas?</p>
+              <p className="text-xs text-gray-500 mt-0.5">Te haremos algunas preguntas para entender tu caso y darte el permiso que mejor se adapta a ti.</p>
+            </div>
+          </div>
+          <ArrowRight className="w-5 h-5 text-[#b89700] flex-shrink-0" />
+        </motion.button>
+
+        {/* Trust badges */}
+        <motion.div
+          className="flex items-center justify-around gap-2 py-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.55 }}>
-          
-          {steps.map((s, idx) =>
-          <React.Fragment key={idx}>
-              <div className="flex items-center gap-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2.5">
-                <s.icon className="w-4 h-4 text-[#C9A800]" />
-                <span className="text-white text-sm font-medium">{s.label}</span>
-              </div>
-              {idx < steps.length - 1 &&
-            <ArrowRight className="hidden sm:block w-4 h-4 text-white/30 mx-2 flex-shrink-0" />
-            }
-            </React.Fragment>
-          )}
+          transition={{ duration: 0.5, delay: 0.35 }}
+        >
+          {[
+            { icon: Zap, label: "100% GRATIS", sub: "con publicidad" },
+            { icon: Shield, label: "Información", sub: "confiable" },
+            { icon: RefreshCw, label: "Actualizado", sub: "2025" },
+          ].map((b, i) => (
+            <div key={i} className="flex flex-col items-center gap-1 text-center">
+              <b.icon className="w-5 h-5 text-[#1a3fd4]" />
+              <span className="text-xs font-bold text-[#1a1a2e]">{b.label}</span>
+              <span className="text-xs text-gray-500">{b.sub}</span>
+            </div>
+          ))}
         </motion.div>
-      </div>
-    </section>);
 
+        {/* Social proof */}
+        <motion.div
+          className="bg-red-50 border border-red-100 rounded-xl px-4 py-3 flex items-center gap-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.45 }}
+        >
+          <Heart className="w-4 h-4 text-red-500 flex-shrink-0" />
+          <p className="text-xs text-gray-600">Miles de personas como tú ya encontraron su camino en España.</p>
+        </motion.div>
+
+      </div>
+    </section>
+  );
 }
