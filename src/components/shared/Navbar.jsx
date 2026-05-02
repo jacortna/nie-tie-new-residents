@@ -27,14 +27,14 @@ export default function Navbar() {
   const location = useLocation();
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm">
-      <div className="mx-auto pt-5 pr-6 pb-4 pl-3 rounded-lg max-w-7xl h-16 flex items-center justify-between">
-        <Link to="/">
-          <img
-            src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/c4ff7b0d6_Logo-copia.jpg"
-            alt="New Residents"
-            className="h-10 object-contain" />
-          
+    <nav className="sticky top-0 z-50 bg-[#fdf6e3]/95 backdrop-blur-xl border-b border-[#e8d89a]/40 shadow-sm">
+      <div className="mx-auto pt-3 pr-6 pb-3 pl-4 max-w-7xl flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2.5">
+          <FingerprintMini />
+          <div className="flex flex-col leading-none">
+            <span className="text-[#1a1a2e] font-extrabold text-xl tracking-tight">NIE/IA</span>
+            <span className="text-[#C9A800] font-semibold text-xs tracking-wide">New Resident</span>
+          </div>
         </Link>
 
         {/* Desktop nav */}
@@ -64,7 +64,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+          className="md:hidden p-2 rounded-lg hover:bg-[#f5e6b8]"
           onClick={() => setMobileOpen(!mobileOpen)}>
           
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -73,7 +73,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen &&
-      <div className="md:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-1">
+      <div className="md:hidden border-t border-[#e8d89a]/40 bg-[#fdf6e3] px-6 py-4 space-y-1">
           {navLinks.map((link) =>
         <Link
           key={link.to}
