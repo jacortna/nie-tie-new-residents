@@ -32,7 +32,8 @@ Situación del usuario: "${situacion}"
 Las posibles respuestas son:
 - nationality_type: "eu" | "non_eu"
 - eu_situation (solo si eu): "work" | "study" | "enough_resources" | "family" | "long_term"
-- non_eu_situation (solo si non_eu): "no_visa" | "tourist" | "irregular" | "has_permit" | "family_eu" | "family_spanish"
+- non_eu_situation (solo si non_eu): "no_visa" | "tourist" | "irregular" | "has_permit" | "family_eu" | "family_spanish" | "exceptional"
+- exceptional_type (solo si non_eu_situation="exceptional"): "asylum" | "trata" | "violencia_genero" | "colaboracion" | "humanitarias" | "ucrania"
 - non_eu_purpose (solo si non_eu_situation="no_visa"): "work_employee" | "work_self" | "study" | "digital_nomad" | "family_reunification" | "investor"
 - irregular_time (solo si non_eu_situation="irregular"): "less_1" | "1_to_3" | "more_3"
 - permit_type_held (solo si non_eu_situation="has_permit"): "renew" | "modify" | "long_term" | "nationality"
@@ -42,13 +43,14 @@ Devuelve SOLO el JSON con las claves relevantes según la situación, sin texto 
       response_json_schema: {
         type: "object",
         properties: {
-          nationality_type: { type: "string" },
-          eu_situation: { type: "string" },
-          non_eu_situation: { type: "string" },
-          non_eu_purpose: { type: "string" },
-          irregular_time: { type: "string" },
-          permit_type_held: { type: "string" },
-          tourist_purpose: { type: "string" },
+        nationality_type: { type: "string" },
+        eu_situation: { type: "string" },
+        non_eu_situation: { type: "string" },
+        non_eu_purpose: { type: "string" },
+        irregular_time: { type: "string" },
+        permit_type_held: { type: "string" },
+        tourist_purpose: { type: "string" },
+        exceptional_type: { type: "string" },
         }
       }
     }).then((result) => {

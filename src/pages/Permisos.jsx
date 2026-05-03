@@ -9,6 +9,7 @@ const categories = [
   { value: "all", label: "Todos" },
   { value: "eu", label: "Comunitarios" },
   { value: "non_eu", label: "No comunitarios" },
+  { value: "excepcional", label: "Circunstancias excepcionales" },
 ];
 
 export default function Permisos() {

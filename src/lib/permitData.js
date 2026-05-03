@@ -101,6 +101,12 @@ export const QUESTIONS = [
         label: "Soy familiar de un ciudadano/a español/a",
         description: "Cónyuge, hijo/a menor 26 años o ascendiente directo de español/a",
         icon: "flag"
+      },
+      {
+        value: "exceptional",
+        label: "Tengo circunstancias especiales o humanitarias",
+        description: "Soy víctima de trata, violencia de género, solicitante de asilo, razones médicas u humanitarias",
+        icon: "shield"
       }
     ]
   },
@@ -204,6 +210,51 @@ export const QUESTIONS = [
         label: "Solicitar la nacionalidad española",
         description: "Llevo el tiempo suficiente residiendo",
         icon: "star"
+      }
+    ]
+  },
+  // Sub-question for exceptional circumstances
+  {
+    id: "exceptional_type",
+    question: "¿Cuál es tu circunstancia especial?",
+    subtitle: "Selecciona la que mejor describe tu situación.",
+    condition: { nationality_type: "non_eu", non_eu_situation: "exceptional" },
+    options: [
+      {
+        value: "asylum",
+        label: "Solicito asilo o protección internacional",
+        description: "Huyo de persecución, guerra o riesgo grave en mi país",
+        icon: "shield"
+      },
+      {
+        value: "trata",
+        label: "Soy víctima de trata de seres humanos",
+        description: "He sido identificado/a o me han explotado",
+        icon: "alert"
+      },
+      {
+        value: "violencia_genero",
+        label: "Soy víctima de violencia de género",
+        description: "Mi pareja o expareja me maltrata o amenaza",
+        icon: "heart"
+      },
+      {
+        value: "colaboracion",
+        label: "Colaboro con la policía o la justicia",
+        description: "Denuncio redes criminales o tráfico de personas",
+        icon: "briefcase"
+      },
+      {
+        value: "humanitarias",
+        label: "Tengo razones humanitarias o médicas graves",
+        description: "Enfermedad grave, imposibilidad de retorno, vulnerabilidad extrema",
+        icon: "graduation"
+      },
+      {
+        value: "ucrania",
+        label: "Soy desplazado/a de Ucrania",
+        description: "Desde el 24 de febrero de 2022",
+        icon: "plane"
       }
     ]
   },
@@ -983,12 +1034,279 @@ export const PERMITS = {
       "No todas las modificaciones son posibles: consulta las combinaciones permitidas",
       "Es mejor solicitarla antes de que caduque tu permiso actual"
     ]
+  },
+
+  // ─── CIRCUNSTANCIAS EXCEPCIONALES ───────────────────────────────────────────
+
+  proteccion_internacional: {
+    id: "proteccion_internacional",
+    title: "Protección Internacional (Asilo y Refugio)",
+    shortTitle: "Asilo / Refugio",
+    category: "excepcional",
+    badge: "Circunstancias excepcionales",
+    badgeColor: "bg-sky-100 text-sky-800",
+    duration: "5 años (estatuto de refugiado) / 3 años (protección subsidiaria), renovables",
+    cost: "Gratuito",
+    timeline: "Variable: procedimiento ordinario hasta 6 meses; puede alargarse",
+    description: "Protección para personas que huyen de persecución por motivos de raza, religión, nacionalidad, opiniones políticas o pertenencia a grupo social determinado (asilo), o que corren riesgo de sufrir daños graves en su país (protección subsidiaria). Regulada por la Ley 12/2009.",
+    requirements: [
+      "Encontrarse en España o en frontera española",
+      "Acreditar fundados temores de persecución en su país de origen o residencia habitual",
+      "No haber sido reconocido como refugiado en otro país seguro",
+      "No representar amenaza para la seguridad nacional o el orden público",
+      "Solicitud presentada en plazo (lo antes posible tras la entrada, salvo circunstancias excepcionales)"
+    ],
+    documents: [
+      "Pasaporte u otro documento de viaje (si se dispone)",
+      "Cualquier documentación que acredite los motivos de persecución o riesgo (informes, pruebas, testigos)",
+      "Formulario de solicitud de protección internacional (facilitado por la Oficina de Asilo y Refugio)",
+      "Fotografías recientes",
+      "Si hay menores: documentación de filiación o guarda de hecho"
+    ],
+    where_to_apply: [
+      { place: "Oficina de Asilo y Refugio (OAR) — Madrid", detail: "C/ Pradillo, 40. La más completa. Cita previa por teléfono: 91 537 25 00" },
+      { place: "Comisarías de Policía Nacional habilitadas", detail: "En las principales ciudades. Consultar el listado actualizado en extranjeros.interior.gob.es" },
+      { place: "Puestos fronterizos (aeropuertos y puertos)", detail: "Si llegas directamente de tu país, puedes solicitarlo nada más entrar en España" },
+      { place: "CIE (Centro de Internamiento de Extranjeros)", detail: "Si estás internado, también tienes derecho a solicitar protección internacional" }
+    ],
+    steps: [
+      "Solicita la protección internacional lo antes posible tras llegar a España",
+      "Recoge el documento de solicitante (resguardo) que te permite permanecer en España durante la tramitación",
+      "Asiste a la entrevista personal ante el funcionario de la OAR",
+      "Espera la resolución de la Oficina de Asilo y Refugio",
+      "Si es favorable: obtén el estatuto de refugiado o la protección subsidiaria y solicita el documento de viaje de refugiado y la TIE",
+      "Si es denegada: tienes derecho a recurso ante los tribunales"
+    ],
+    tips: [
+      "Durante la tramitación tienes derecho a permanecer en España legalmente",
+      "Tienes derecho a asistencia jurídica gratuita y a intérprete",
+      "ACNUR y varias ONG (CEAR, Accem, Cruz Roja) ofrecen asistencia gratuita",
+      "Tras 6 meses de espera, puedes solicitar autorización para trabajar aunque la resolución esté pendiente",
+      "Los menores no acompañados también pueden solicitarlo a través de su tutor legal"
+    ]
+  },
+
+  victima_trata: {
+    id: "victima_trata",
+    title: "Residencia por ser Víctima de Trata de Seres Humanos",
+    shortTitle: "Víctima de trata",
+    category: "excepcional",
+    badge: "Circunstancias excepcionales",
+    badgeColor: "bg-rose-100 text-rose-800",
+    duration: "5 años (renovable)",
+    cost: "Gratuito",
+    timeline: "Período de restablecimiento: 90 días; residencia definitiva: 1-3 meses",
+    description: "Autorización de residencia y trabajo para extranjeros identificados como víctimas de trata de seres humanos (art. 59 bis LOEx). Incluye un período de restablecimiento y reflexión de 90 días, y posteriormente una residencia de 5 años con permiso de trabajo.",
+    requirements: [
+      "Haber sido identificado/a como víctima de trata por las Fuerzas y Cuerpos de Seguridad del Estado",
+      "Cooperar con la investigación policial y judicial (o acreditar situación personal de riesgo grave si no puede cooperar)",
+      "Haber roto el vínculo con los tratantes",
+      "No representar amenaza para el orden público o la seguridad nacional"
+    ],
+    documents: [
+      "Informe de identificación como víctima de trata emitido por las FCSE",
+      "Pasaporte u otro documento de identidad (si se dispone)",
+      "Documentación médica o psicológica que acredite el estado de la víctima (si aplica)",
+      "Formulario de solicitud de autorización de residencia por circunstancias excepcionales (EX-10)"
+    ],
+    where_to_apply: [
+      { place: "Unidad Central de Redes de Inmigración Ilegal y Falsedades Documentales (UCRIF)", detail: "De la Policía Nacional. Son ellos quienes inician el proceso de identificación." },
+      { place: "Oficina de Extranjería de tu provincia", detail: "Una vez identificada como víctima, se presenta la solicitud de residencia con el informe policial." },
+      { place: "ONG especializadas", detail: "Médicos del Mundo, APRAMP, Proyecto Esperanza, Cruz Roja — ofrecen asistencia y acompañamiento integral gratuito." }
+    ],
+    steps: [
+      "La identificación como víctima la realiza la Policía Nacional (UCRIF)",
+      "Se concede un período de restablecimiento de 90 días (cese de cualquier expediente sancionador, alojamiento y asistencia)",
+      "Durante o al final del período de reflexión, se decide si cooperar o acreditar situación de riesgo",
+      "Se solicita la autorización de residencia y trabajo en Extranjería",
+      "Se obtiene la TIE y se puede acceder al mercado laboral"
+    ],
+    tips: [
+      "No es obligatorio denunciar para obtener la protección: basta con acreditar la situación de riesgo grave",
+      "Tienes derecho a asistencia jurídica gratuita, atención médica y psicológica y alojamiento seguro",
+      "Los hijos menores también pueden regularizarse al amparo de este permiso",
+      "Puedes acceder al mercado laboral sin restricciones de sector ni territorio"
+    ]
+  },
+
+  victima_violencia_genero: {
+    id: "victima_violencia_genero",
+    title: "Residencia por ser Víctima de Violencia de Género",
+    shortTitle: "Víctima de violencia de género",
+    category: "excepcional",
+    badge: "Circunstancias excepcionales",
+    badgeColor: "bg-fuchsia-100 text-fuchsia-800",
+    duration: "5 años (renovable)",
+    cost: "Gratuito",
+    timeline: "Autorización provisional inmediata; definitiva tras condena o resolución judicial: 1-3 meses",
+    description: "Autorización de residencia y trabajo independiente para mujeres extranjeras en situación irregular que son víctimas de violencia de género ejercida por su cónyuge o pareja (art. 31 bis LOEx). No requieren condena previa para obtener protección provisional.",
+    requirements: [
+      "Ser mujer extranjera (con o sin residencia legal) víctima de violencia de género",
+      "Que el agresor sea el cónyuge, expareja o persona con quien tenga o haya tenido análoga relación de afectividad",
+      "Haber solicitado una orden de protección o, en su defecto, informe del Ministerio Fiscal que indicie violencia",
+      "No encontrarse en situación de riesgo por razón de orden público"
+    ],
+    documents: [
+      "Orden de protección o medidas cautelares emitidas por el Juzgado de Violencia sobre la Mujer (o informe del Ministerio Fiscal)",
+      "Pasaporte u otro documento de identidad",
+      "Formulario de solicitud de autorización por circunstancias excepcionales (EX-10)",
+      "Certificado de empadronamiento (si se dispone)"
+    ],
+    where_to_apply: [
+      { place: "Juzgado de Violencia sobre la Mujer (primer paso)", detail: "Solicita la orden de protección. Puedes hacerlo en cualquier comisaría, juzgado de guardia o servicio de atención a la víctima." },
+      { place: "Oficina de Extranjería de tu provincia", detail: "Presenta la solicitud de residencia con la orden de protección. Puedes hacerlo aunque estés en situación irregular." },
+      { place: "Delegación del Gobierno para la Violencia de Género (016)", detail: "Llama al 016 (gratuito y confidencial, 24h) para asistencia y orientación inmediata." }
+    ],
+    steps: [
+      "Denuncia la situación y solicita la orden de protección ante la policía o juzgado",
+      "Con la orden de protección (o informe del Ministerio Fiscal), solicita la autorización provisional de residencia y trabajo en Extranjería",
+      "La autorización provisional se concede inmediatamente, protegiendo tu situación durante el proceso judicial",
+      "Tras sentencia condenatoria o resolución favorable, se convierte en autorización definitiva de 5 años",
+      "Puedes acceder a ayudas sociales, alojamiento y empleo durante todo el proceso"
+    ],
+    tips: [
+      "No necesitas estar en situación regular para solicitarlo",
+      "La autorización provisional de trabajo se concede desde el mismo momento en que se solicita la orden de protección",
+      "El 016 es gratuito, confidencial y disponible 24h en múltiples idiomas",
+      "Tus hijos menores también pueden beneficiarse de esta protección",
+      "Si el agresor tiene tu permiso de residencia vinculado al suyo, puedes obtener un permiso independiente"
+    ]
+  },
+
+  colaboracion_autoridades: {
+    id: "colaboracion_autoridades",
+    title: "Residencia por Colaboración con Autoridades",
+    shortTitle: "Colaboración con autoridades",
+    category: "excepcional",
+    badge: "Circunstancias excepcionales",
+    badgeColor: "bg-violet-100 text-violet-800",
+    duration: "1 año (primera, renovable)",
+    cost: "Tasa aproximada: 10-16 €",
+    timeline: "1-3 meses",
+    description: "Autorización de residencia temporal para extranjeros en situación irregular que colaboran con las autoridades policiales, fiscales o judiciales en la lucha contra redes delictivas, tráfico ilícito de personas, terrorismo u otros delitos graves (art. 59 LOEx).",
+    requirements: [
+      "Colaboración activa con Fuerzas y Cuerpos de Seguridad, Ministerio Fiscal o autoridad judicial",
+      "La colaboración debe referirse a redes de inmigración ilegal, tráfico de personas, terrorismo u otros delitos graves organizados",
+      "Informe favorable de la autoridad con la que colaboras",
+      "No representar amenaza para el orden público o seguridad nacional",
+      "Que la expulsión pueda obstaculizar o perjudicar gravemente la investigación"
+    ],
+    documents: [
+      "Informe favorable de la autoridad policial, fiscal o judicial (acreditando la colaboración y su relevancia)",
+      "Pasaporte u otro documento de identidad",
+      "Formulario EX-10 de solicitud de autorización por circunstancias excepcionales",
+      "Cualquier documentación adicional que acredite el riesgo personal por la colaboración"
+    ],
+    where_to_apply: [
+      { place: "Delegación/Subdelegación del Gobierno de tu provincia", detail: "La solicitud la inicia habitualmente la propia autoridad policial o fiscal que certifica la colaboración." },
+      { place: "Oficina de Extranjería de tu provincia", detail: "Con cita previa. Se presenta el informe de colaboración junto con la documentación personal." }
+    ],
+    steps: [
+      "La autoridad policial, fiscal o judicial emite el informe de colaboración",
+      "Se suspende cautelarmente cualquier expediente de expulsión en curso",
+      "Se presenta la solicitud de autorización de residencia en Extranjería",
+      "Si se aprueba, se obtiene la TIE y permiso de trabajo"
+    ],
+    tips: [
+      "Puede solicitarse aunque exista un expediente de expulsión en trámite: la expulsión queda suspendida",
+      "La colaboración puede ser con policía, fiscalía o jueces",
+      "Este permiso es compatible con obtener protección para familiares en riesgo",
+      "Se puede renovar mientras continúe la colaboración o el proceso judicial"
+    ]
+  },
+
+  razones_humanitarias: {
+    id: "razones_humanitarias",
+    title: "Residencia por Razones Humanitarias",
+    shortTitle: "Razones humanitarias",
+    category: "excepcional",
+    badge: "Circunstancias excepcionales",
+    badgeColor: "bg-cyan-100 text-cyan-800",
+    duration: "1 año (renovable)",
+    cost: "Tasa aproximada: 10-16 €",
+    timeline: "1-3 meses",
+    description: "Autorización de residencia temporal para extranjeros que se encuentran en España y acreditan razones humanitarias de especial gravedad: enfermedad sobrevenida grave, imposibilidad de retorno acreditada, o situaciones de vulnerabilidad extrema (art. 31.3 y Disposición Adicional 3ª LOEx y arts. 123-130 REx).",
+    requirements: [
+      "Encontrarse en España",
+      "Acreditar al menos UNA de estas circunstancias: (A) Enfermedad sobrevenida grave que requiera tratamiento no disponible en el país de origen; (B) Peligro para la integridad física si regresa al país de origen (sin llegar al nivel de protección internacional); (C) Otras razones humanitarias de especial gravedad apreciadas por el órgano competente",
+      "No tener antecedentes penales graves en España",
+      "Informe médico oficial, informe de servicios sociales u otra documentación acreditativa"
+    ],
+    documents: [
+      "Pasaporte u otro documento de identidad",
+      "Formulario EX-10 de solicitud de autorización por circunstancias excepcionales",
+      "Informe médico oficial (si la causa es enfermedad): diagnóstico, tratamiento y justificación de necesidad en España",
+      "Informe de servicios sociales acreditando la situación de vulnerabilidad (si aplica)",
+      "Informes de país de la ACNUR, Amnistía Internacional u otras fuentes sobre riesgo en el país de origen (si aplica)",
+      "Certificado de empadronamiento",
+      "Certificado de antecedentes penales"
+    ],
+    where_to_apply: [
+      { place: "Oficina de Extranjería de tu provincia", detail: "Con cita previa en sede.gob.es. La resolución corresponde a la Delegación/Subdelegación del Gobierno." },
+      { place: "Sede electrónica", detail: "Tramitación online posible con certificado digital en sede.administracionespublicas.gob.es" },
+      { place: "ONG y servicios sociales (para obtener informes previos)", detail: "Cruz Roja, Cáritas, CEAR y servicios sociales municipales pueden emitir informes de vulnerabilidad y apoyar la solicitud." }
+    ],
+    steps: [
+      "Reúne la documentación acreditativa de la situación humanitaria (informe médico, social, etc.)",
+      "Solicita informe de servicios sociales o de la entidad correspondiente si aplica",
+      "Presenta la solicitud EX-10 en la Oficina de Extranjería con toda la documentación",
+      "La Delegación del Gobierno resuelve valorando las circunstancias",
+      "Si es favorable, solicita la TIE"
+    ],
+    tips: [
+      "Se valoran situaciones muy diversas: enfermedad, riesgo en país de origen, situación de calle, menores a cargo, etc.",
+      "Un informe detallado de servicios sociales o de una ONG reconocida puede ser determinante",
+      "La denegación de protección internacional no impide solicitar la residencia por razones humanitarias",
+      "También se aplica a víctimas de catástrofes naturales en el país de origen",
+      "Este permiso puede renovarse si persisten las circunstancias que lo motivaron"
+    ]
+  },
+
+  proteccion_temporal: {
+    id: "proteccion_temporal",
+    title: "Protección Temporal (Directiva UE 2001/55/CE)",
+    shortTitle: "Protección temporal",
+    category: "excepcional",
+    badge: "Circunstancias excepcionales",
+    badgeColor: "bg-blue-100 text-blue-800",
+    duration: "1 año (prorrogable hasta 3 años en total)",
+    cost: "Gratuito",
+    timeline: "Resolución rápida (días/semanas)",
+    description: "Protección provisional activada por decisión del Consejo de la UE ante afluencia masiva de personas desplazadas. Actualmente activa para personas desplazadas de Ucrania desde el 4 de marzo de 2022 (Decisión de Ejecución (UE) 2022/382). Otorga permiso de residencia, trabajo, alojamiento, asistencia sanitaria y educación.",
+    requirements: [
+      "Ser nacional ucraniano/a desplazado/a desde el 24 de febrero de 2022 (o familiar directo), O ser residente en Ucrania con estatuto de refugiado o protección equivalente antes del 24/2/2022, O ser apátrida o nacional de tercer país con residencia permanente en Ucrania antes del 24/2/2022 (que no puedan regresar a su país de origen en condiciones seguras)",
+      "Encontrarse en España o solicitar en frontera"
+    ],
+    documents: [
+      "Pasaporte ucraniano u otro documento de identidad válido",
+      "En caso de familiares de ucraniano/a: documentación que acredite el vínculo familiar",
+      "Formulario de solicitud de protección temporal (disponible en las Oficinas de Asilo)",
+      "Fotografías recientes"
+    ],
+    where_to_apply: [
+      { place: "Comisarías de Policía Nacional habilitadas", detail: "Son el principal punto de solicitud. Hay comisarías específicamente habilitadas en cada provincia. Cita previa en sede.gob.es" },
+      { place: "Centro de Atención a Desplazados de Ucrania (CREADE)", detail: "En Madrid (c/ Pradillo 40), Barcelona, Valencia y otras ciudades. Atención integral: trámites, alojamiento, empleo, educación." },
+      { place: "Puntos de registro en frontera y aeropuertos", detail: "Para quienes llegan directamente desde Ucrania o país de tránsito." }
+    ],
+    steps: [
+      "Acude a la comisaría habilitada o al CREADE más cercano",
+      "Presenta la documentación de identidad",
+      "Se registra y se expide el documento de protección temporal",
+      "Con el documento, puedes acceder al mercado laboral, sanidad, educación y sistema de acogida"
+    ],
+    tips: [
+      "El permiso de trabajo está incluido: no necesitas solicitud adicional",
+      "Los menores tienen acceso garantizado al sistema educativo español",
+      "Hay red de alojamiento de emergencia y ayudas económicas a través de las CC.AA.",
+      "Si tienes familiares españoles o residentes en España, consulta si puedes optar por una vía de residencia ordinaria más estable",
+      "La protección temporal no impide solicitar asilo ordinario si lo deseas"
+    ]
   }
 };
 
 // Rules to determine which permits to show based on answers
 export function getRecommendedPermits(answers) {
-  const { nationality_type, eu_situation, non_eu_situation, non_eu_purpose, irregular_time, permit_type_held, tourist_purpose } = answers;
+  const { nationality_type, eu_situation, non_eu_situation, non_eu_purpose, irregular_time, permit_type_held, tourist_purpose, exceptional_type } = answers;
 
   if (nationality_type === "eu") {
     switch (eu_situation) {
@@ -1014,6 +1332,26 @@ export function getRecommendedPermits(answers) {
     // Family of Spanish citizen
     if (non_eu_situation === "family_spanish") {
       return ["family_spanish", "arraigo_familiar"];
+    }
+
+    // Exceptional circumstances
+    if (non_eu_situation === "exceptional") {
+      switch (exceptional_type) {
+        case "asylum":
+          return ["proteccion_internacional", "razones_humanitarias"];
+        case "trata":
+          return ["victima_trata"];
+        case "violencia_genero":
+          return ["victima_violencia_genero"];
+        case "colaboracion":
+          return ["colaboracion_autoridades"];
+        case "humanitarias":
+          return ["razones_humanitarias", "proteccion_internacional"];
+        case "ucrania":
+          return ["proteccion_temporal", "proteccion_internacional"];
+        default:
+          return ["proteccion_internacional", "razones_humanitarias", "victima_trata", "victima_violencia_genero"];
+      }
     }
 
     // Coming from abroad
