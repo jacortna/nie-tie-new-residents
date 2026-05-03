@@ -1262,6 +1262,49 @@ export const PERMITS = {
     ]
   },
 
+  mena_menor_no_acompanado: {
+    id: "mena_menor_no_acompanado",
+    title: "Residencia para Menores Extranjeros No Acompañados (MENA)",
+    shortTitle: "Menores no acompañados (MENA)",
+    category: "excepcional",
+    badge: "Circunstancias excepcionales",
+    badgeColor: "bg-amber-100 text-amber-800",
+    duration: "2 años (renovable; al cumplir 18 años puede modificarse a trabajo o arraigo)",
+    cost: "Exenta de tasa",
+    timeline: "Inmediata (al quedar bajo tutela de la CC.AA.)",
+    description: "Autorización de residencia para menores extranjeros no acompañados que se encuentran bajo la tutela o guarda de las Comunidades Autónomas o entidades públicas de protección de menores (art. 35 LO 4/2000 y arts. 196-201 RD 557/2011). La solicitud la inicia la propia entidad tutora.",
+    requirements: [
+      "Ser menor de 18 años extranjero",
+      "No estar acompañado de sus progenitores o tutores legales",
+      "Encontrarse bajo la tutela o guarda de la entidad pública de protección de menores de una CC.AA.",
+      "No se exige documentación del país de origen ni tiempo previo de estancia"
+    ],
+    documents: [
+      "Documento de identidad del menor si está disponible (pasaporte u otro)",
+      "Resolución de tutela o guarda emitida por la entidad pública de protección de menores de la CC.AA.",
+      "Formulario EX-10 (presentado por la entidad tutora en nombre del menor)",
+      "Informe social de la entidad tutora sobre la situación del menor"
+    ],
+    where_to_apply: [
+      { place: "Oficina de Extranjería de la provincia donde está tutelado", detail: "La solicitud la presenta la entidad de protección de menores (Comunidad Autónoma), no el menor directamente." },
+      { place: "Entidades de protección de menores de las CC.AA.", detail: "Son las responsables de iniciar y gestionar el trámite en nombre del menor." },
+      { place: "Servicios de emergencias sociales municipales", detail: "El primer contacto suele ser con los servicios de emergencia o la policía, que derivan al menor a la CC.AA." }
+    ],
+    steps: [
+      "El menor es localizado (por policía, servicios sociales u ONG) y puesto bajo tutela de la entidad de protección de la CC.AA.",
+      "La entidad tutora solicita la autorización de residencia en la Oficina de Extranjería",
+      "Se concede autorización de residencia por 2 años con posibilidad de autorización de trabajo desde los 16 años",
+      "Al cumplir 18 años, el menor puede solicitar renovación o modificación a permiso de trabajo, arraigo social u otros"
+    ],
+    tips: [
+      "Al cumplir 18 años, los años bajo tutela computan a efectos del arraigo social",
+      "Desde los 16 años se puede solicitar autorización de trabajo (la solicita la entidad tutora)",
+      "Si el menor tiene 18 años y ha estado bajo tutela institucional, existen requisitos facilitados para el arraigo social",
+      "Los menores víctimas de trata tienen protección reforzada adicional",
+      "Puedes contactar con la ONG Save the Children (900 202 010) o Cruz Roja para orientación"
+    ]
+  },
+
   proteccion_temporal: {
     id: "proteccion_temporal",
     title: "Protección Temporal (Directiva UE 2001/55/CE)",
@@ -1349,6 +1392,8 @@ export function getRecommendedPermits(answers) {
           return ["razones_humanitarias", "proteccion_internacional"];
         case "ucrania":
           return ["proteccion_temporal", "proteccion_internacional"];
+        case "menor":
+          return ["mena_menor_no_acompanado"];
         default:
           return ["proteccion_internacional", "razones_humanitarias", "victima_trata", "victima_violencia_genero"];
       }
