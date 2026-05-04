@@ -30,10 +30,14 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-[#fdf6e3] border-b border-[#e8d89a]/30">
       <div className="mx-auto pt-3 pr-5 pb-3 pl-4 max-w-7xl flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <FingerprintMini />
-          <div className="flex flex-col leading-none">
-            <span className="text-3xl font-extrabold tracking-tight text-[#C9A800]" style={{fontFamily: 'Georgia, serif'}}>NIE/IA</span>
-            <span className="text-sm font-semibold text-[#C9A800] tracking-wide">New Resident</span>
+          <img
+            src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/3e37e73b9_IMG_20260427_221950.jpg"
+            alt="New Residents"
+            className="h-12 w-12 object-contain rounded-2xl shadow-md"
+          />
+          <div className="flex flex-col leading-tight">
+            <span className="text-xl font-extrabold tracking-tight text-[#2B2FAA]">NIE/IA</span>
+            <span className="text-xs font-semibold text-[#C9A800] tracking-wide">New Residents</span>
           </div>
         </Link>
 
