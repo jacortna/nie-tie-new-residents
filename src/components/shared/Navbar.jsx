@@ -31,7 +31,7 @@ export default function Navbar() {
       <div className="mx-auto pt-3 pr-5 pb-3 pl-4 max-w-7xl flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5">
           <img
-            src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/c4ff7b0d6_Logo-copia.jpg"
+            src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/3e37e73b9_IMG_20260427_221950.jpg"
             alt="New Residents"
             className="h-10 object-contain"
           />

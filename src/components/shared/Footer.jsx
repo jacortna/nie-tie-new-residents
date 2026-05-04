@@ -22,7 +22,7 @@ export default function Footer() {
           <div>
             <Link to="/" className="mb-4 inline-block">
               <img
-                src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/c4ff7b0d6_Logo-copia.jpg"
+                src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/3e37e73b9_IMG_20260427_221950.jpg"
                 alt="New Residents"
                 className="h-10 object-contain brightness-0 invert"
               />
