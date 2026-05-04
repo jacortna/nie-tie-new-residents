@@ -33,7 +33,7 @@ export default function Navbar() {
           <img
             src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/3e37e73b9_IMG_20260427_221950.jpg"
             alt="New Residents"
-            className="h-10 object-contain"
+            className="h-14 w-14 object-contain rounded-2xl shadow-sm"
           />
         </Link>
 

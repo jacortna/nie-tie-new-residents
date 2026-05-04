@@ -24,7 +24,7 @@ export default function Footer() {
               <img
                 src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/3e37e73b9_IMG_20260427_221950.jpg"
                 alt="New Residents"
-                className="h-10 object-contain brightness-0 invert"
+                className="h-16 w-16 object-contain rounded-2xl"
               />
             </Link>
             <p className="text-white/60 text-sm max-w-sm leading-relaxed">
