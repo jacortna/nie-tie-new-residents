@@ -11,15 +11,15 @@ const navLinks = [
 
 function FingerprintMini() {
   return (
-    <svg width="48" height="58" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 10 C50 10, 10 55, 10 110 C10 165, 50 210, 100 220 C150 210, 190 165, 190 110 C190 55, 150 10, 100 10Z" stroke="#2B2FAA" strokeWidth="5" fill="none" strokeLinecap="round" />
-      <path d="M100 28 C62 28, 28 67, 28 110 C28 153, 62 192, 100 202 C138 192, 172 153, 172 110 C172 67, 138 28, 100 28Z" stroke="#2B2FAA" strokeWidth="4.5" fill="none" strokeLinecap="round" />
-      <path d="M100 46 C72 46, 46 76, 46 110 C46 144, 72 180, 100 188 C128 180, 154 144, 154 110 C154 76, 128 46, 100 46Z" stroke="#2B2FAA" strokeWidth="4" fill="none" strokeLinecap="round" />
-      <path d="M100 64 C82 64, 64 84, 64 110 C64 136, 82 162, 100 170 C118 162, 136 136, 136 110 C136 84, 118 64, 100 64Z" stroke="#2B2FAA" strokeWidth="3.5" fill="none" strokeLinecap="round" />
-      <path d="M100 82 C90 82, 82 95, 82 110 C82 126, 90 140, 100 145 C110 140, 118 126, 118 110 C118 95, 110 82, 100 82Z" stroke="#2B2FAA" strokeWidth="3" fill="none" strokeLinecap="round" />
-      <circle cx="100" cy="110" r="6" fill="#2B2FAA" />
-    </svg>);
-
+    <svg width="52" height="52" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 5 C50 5, 8 47, 8 100 C8 153, 50 195, 100 195 C150 195, 192 153, 192 100 C192 47, 150 5, 100 5Z" stroke="#2B2FAA" strokeWidth="7" fill="none" strokeLinecap="round"/>
+      <path d="M100 25 C62 25, 28 60, 28 100 C28 140, 62 175, 100 175 C138 175, 172 140, 172 100 C172 60, 138 25, 100 25Z" stroke="#2B2FAA" strokeWidth="6.5" fill="none" strokeLinecap="round"/>
+      <path d="M100 45 C72 45, 48 68, 48 100 C48 132, 72 155, 100 155 C128 155, 152 132, 152 100 C152 68, 128 45, 100 45Z" stroke="#2B2FAA" strokeWidth="6" fill="none" strokeLinecap="round"/>
+      <path d="M100 65 C82 65, 68 81, 68 100 C68 119, 82 135, 100 135 C118 135, 132 119, 132 100 C132 81, 118 65, 100 65Z" stroke="#2B2FAA" strokeWidth="5.5" fill="none" strokeLinecap="round"/>
+      <path d="M100 85 C90 85, 84 92, 84 100 C84 110, 90 117, 100 117 C110 117, 116 110, 116 100 C116 92, 110 85, 100 85Z" stroke="#2B2FAA" strokeWidth="5" fill="none" strokeLinecap="round"/>
+      <circle cx="100" cy="100" r="7" fill="#2B2FAA"/>
+    </svg>
+  );
 }
 
 export default function Navbar() {
@@ -30,14 +30,10 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-[#fdf6e3] border-b border-[#e8d89a]/30">
       <div className="mx-auto pt-3 pr-5 pb-3 pl-4 max-w-7xl flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <img
-            src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/3e37e73b9_IMG_20260427_221950.jpg"
-            alt="New Residents"
-            className="h-12 w-12 object-contain rounded-2xl shadow-md"
-          />
-          <div className="flex flex-col leading-tight">
-            <span className="text-xl font-extrabold tracking-tight text-[#2B2FAA]">NIE/IA</span>
-            <span className="text-xs font-semibold text-[#C9A800] tracking-wide">New Residents</span>
+          <FingerprintMini />
+          <div className="flex flex-col leading-none">
+            <span className="text-3xl font-extrabold tracking-tight text-[#C9A800]" style={{fontFamily: 'Georgia, serif'}}>NIE/IA</span>
+            <span className="text-sm font-semibold text-[#C9A800] tracking-wide">New Resident</span>
           </div>
         </Link>
 
