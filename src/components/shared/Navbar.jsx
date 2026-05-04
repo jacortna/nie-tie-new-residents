@@ -11,7 +11,7 @@ const navLinks = [
 
 function FingerprintMini() {
   return (
-    <svg width="28" height="34" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="48" height="58" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M100 10 C50 10, 10 55, 10 110 C10 165, 50 210, 100 220 C150 210, 190 165, 190 110 C190 55, 150 10, 100 10Z" stroke="#2B2FAA" strokeWidth="5" fill="none" strokeLinecap="round" />
       <path d="M100 28 C62 28, 28 67, 28 110 C28 153, 62 192, 100 202 C138 192, 172 153, 172 110 C172 67, 138 28, 100 28Z" stroke="#2B2FAA" strokeWidth="4.5" fill="none" strokeLinecap="round" />
       <path d="M100 46 C72 46, 46 76, 46 110 C46 144, 72 180, 100 188 C128 180, 154 144, 154 110 C154 76, 128 46, 100 46Z" stroke="#2B2FAA" strokeWidth="4" fill="none" strokeLinecap="round" />
@@ -29,15 +29,11 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-[#fdf6e3] border-b border-[#e8d89a]/30">
       <div className="mx-auto pt-3 pr-5 pb-3 pl-4 max-w-7xl flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
-          <img
-            src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/3e37e73b9_IMG_20260427_221950.jpg"
-            alt="New Residents"
-            className="h-12 w-12 object-contain rounded-2xl shadow-md"
-          />
+        <Link to="/" className="flex items-center gap-2.5">
+          <FingerprintMini />
           <div className="flex flex-col leading-tight">
-            <span className="text-xl font-extrabold tracking-tight text-[#2B2FAA]">NIE/IA</span>
-            <span className="text-xs font-semibold text-[#C9A800] tracking-wide">New Residents</span>
+            <span className="text-2xl font-extrabold tracking-tight text-[#2B2FAA]">NIE/IA</span>
+            <span className="text-xs font-semibold text-[#C9A800] tracking-widest uppercase">New Residents</span>
           </div>
         </Link>
 
