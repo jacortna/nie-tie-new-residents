@@ -20,12 +20,16 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
           <div>
-            <Link to="/" className="mb-4 inline-block">
+            <Link to="/" className="mb-4 flex items-center gap-3">
               <img
                 src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/3e37e73b9_IMG_20260427_221950.jpg"
                 alt="New Residents"
-                className="h-16 w-16 object-contain rounded-2xl"
+                className="h-14 w-14 object-contain rounded-2xl"
               />
+              <div className="flex flex-col leading-tight">
+                <span className="text-2xl font-extrabold tracking-tight text-white">NIE/IA</span>
+                <span className="text-sm font-semibold text-[#C9A800] tracking-wide">New Residents</span>
+              </div>
             </Link>
             <p className="text-white/60 text-sm max-w-sm leading-relaxed">
               Guía informativa sobre permisos de residencia en España.
