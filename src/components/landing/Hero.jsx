@@ -67,25 +67,6 @@ export default function Hero() {
           </button>
         </motion.div>
 
-        {/* Alternative: wizard */}
-        <motion.button
-          onClick={() => navigate("/consulta")}
-          className="bg-[#fdf0c0] border border-[#C9A800]/30 rounded-2xl p-4 flex items-center justify-between gap-4 hover:bg-[#fce97a]/30 transition-colors text-left"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-        >
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#C9A800]/20 flex items-center justify-center flex-shrink-0">
-              <List className="w-5 h-5 text-[#b89700]" />
-            </div>
-            <div>
-              <p className="font-bold text-[#1a1a2e] text-sm">¿Prefieres responder preguntas definidas?</p>
-              <p className="text-xs text-gray-500 mt-0.5">Te haremos algunas preguntas para entender tu caso y darte el permiso que mejor se adapta a ti.</p>
-            </div>
-          </div>
-          <ArrowRight className="w-5 h-5 text-[#b89700] flex-shrink-0" />
-        </motion.button>
 
         {/* Trust badges */}
         <motion.div
