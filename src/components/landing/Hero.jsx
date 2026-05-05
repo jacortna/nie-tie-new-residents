@@ -30,7 +30,7 @@ export default function Hero() {
             Encuentra el{" "}<span className="text-[#C9A800] hidden">camino</span><br />
             <span className="text-[#C9A800] hidden">para hacerlo realidad.</span>
           </h1>
-          <p className="text-[#555] text-base leading-relaxed">T
+          <p className="text-[#555] text-base leading-relaxed">TE AYUDAMOS 
 
 
           </p>
