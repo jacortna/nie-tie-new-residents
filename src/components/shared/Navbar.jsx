@@ -18,11 +18,11 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-[#fdf6e3] border-b border-[#e8d89a]/30">
       <div className="mx-auto pt-4 pr-5 pb-4 pl-4 max-w-7xl flex items-center justify-between">
         <Link to="/">
-          <img
-            src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/07f744cec_IMG_20260504_095949.png"
-            alt="NIE/IA New Residents"
-            className="h-24 object-contain"
-          />
+          <img src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/07f744cec_IMG_20260504_095949.png"
+
+          alt="NIE/IA New Residents"
+          className="h-24 object-contain" />
+          
         </Link>
 
         {/* Desktop nav */}
