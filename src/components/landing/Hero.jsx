@@ -24,8 +24,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}>
           
-          <h1 translate="no" className="text-[#1a1a2e] text-4xl sm:text-5xl font-extrabold leading-tight mb-3">Tu futuro en España
-comienza aquí.
+          <h1 translate="no" className="text-[#1a1a2e] text-4xl sm:text-5xl font-extrabold leading-tight mb-3 underline">Tu futuro en España comienza aquí.
+
 
 
 
