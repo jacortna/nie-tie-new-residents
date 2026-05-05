@@ -3,19 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
-function FingerprintMini() {
-  return (
-    <svg width="64" height="64" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 5 C50 5, 8 47, 8 100 C8 153, 50 195, 100 195 C150 195, 192 153, 192 100 C192 47, 150 5, 100 5Z" stroke="#2B2FAA" strokeWidth="7" fill="none" strokeLinecap="round"/>
-      <path d="M100 25 C62 25, 28 60, 28 100 C28 140, 62 175, 100 175 C138 175, 172 140, 172 100 C172 60, 138 25, 100 25Z" stroke="#2B2FAA" strokeWidth="6.5" fill="none" strokeLinecap="round"/>
-      <path d="M100 45 C72 45, 48 68, 48 100 C48 132, 72 155, 100 155 C128 155, 152 132, 152 100 C152 68, 128 45, 100 45Z" stroke="#2B2FAA" strokeWidth="6" fill="none" strokeLinecap="round"/>
-      <path d="M100 65 C82 65, 68 81, 68 100 C68 119, 82 135, 100 135 C118 135, 132 119, 132 100 C132 81, 118 65, 100 65Z" stroke="#2B2FAA" strokeWidth="5.5" fill="none" strokeLinecap="round"/>
-      <path d="M100 85 C90 85, 84 92, 84 100 C84 110, 90 117, 100 117 C110 117, 116 110, 116 100 C116 92, 110 85, 100 85Z" stroke="#2B2FAA" strokeWidth="5" fill="none" strokeLinecap="round"/>
-      <circle cx="100" cy="100" r="7" fill="#2B2FAA"/>
-    </svg>
-  );
-}
-
 const navLinks = [
 { to: "/", label: "Inicio" },
 { to: "/consulta", label: "Consulta" },
@@ -30,13 +17,12 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-[#fdf6e3] border-b border-[#e8d89a]/30">
       <div className="mx-auto pt-4 pr-5 pb-4 pl-4 max-w-7xl flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
-          <FingerprintMini />
-          <div className="w-px h-16 bg-[#C9A800] mx-1" />
-          <div className="flex flex-col leading-none gap-1">
-            <span className="text-4xl font-extrabold tracking-tight text-[#C9A800]">NIE/IA</span>
-            <span className="text-base font-semibold text-[#C9A800] tracking-wide">New Residents</span>
-          </div>
+        <Link to="/">
+          <img
+            src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/07f744cec_IMG_20260504_095949.png"
+            alt="NIE/IA New Residents"
+            className="h-16 object-contain"
+          />
         </Link>
 
         {/* Desktop nav */}
