@@ -45,7 +45,7 @@ comienza aquí.
           
           <div className="flex items-center gap-2 mb-3">
             <MessageSquare className="w-5 h-5 text-[#1a3fd4]" />
-            <span className="font-bold text-[#1a1a2e] text-sm">ESCRIBE TU SITUACIÓN ACTUALY  </span>
+            <span className="font-bold text-[#1a1a2e] text-sm">ESCRIBE TU SITUACIÓN ACTUAL Y   </span>
           </div>
           <div className="relative">
             <textarea
