@@ -9,18 +9,6 @@ const navLinks = [
 { to: "/permisos", label: "Permisos" }];
 
 
-function FingerprintMini() {
-  return (
-    <svg width="52" height="52" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 5 C50 5, 8 47, 8 100 C8 153, 50 195, 100 195 C150 195, 192 153, 192 100 C192 47, 150 5, 100 5Z" stroke="#2B2FAA" strokeWidth="7" fill="none" strokeLinecap="round"/>
-      <path d="M100 25 C62 25, 28 60, 28 100 C28 140, 62 175, 100 175 C138 175, 172 140, 172 100 C172 60, 138 25, 100 25Z" stroke="#2B2FAA" strokeWidth="6.5" fill="none" strokeLinecap="round"/>
-      <path d="M100 45 C72 45, 48 68, 48 100 C48 132, 72 155, 100 155 C128 155, 152 132, 152 100 C152 68, 128 45, 100 45Z" stroke="#2B2FAA" strokeWidth="6" fill="none" strokeLinecap="round"/>
-      <path d="M100 65 C82 65, 68 81, 68 100 C68 119, 82 135, 100 135 C118 135, 132 119, 132 100 C132 81, 118 65, 100 65Z" stroke="#2B2FAA" strokeWidth="5.5" fill="none" strokeLinecap="round"/>
-      <path d="M100 85 C90 85, 84 92, 84 100 C84 110, 90 117, 100 117 C110 117, 116 110, 116 100 C116 92, 110 85, 100 85Z" stroke="#2B2FAA" strokeWidth="5" fill="none" strokeLinecap="round"/>
-      <circle cx="100" cy="100" r="7" fill="#2B2FAA"/>
-    </svg>
-  );
-}
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -33,7 +21,7 @@ export default function Navbar() {
           <img
             src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/e1c606382_IMG_20260504_095949.png"
             alt="New Residents"
-            className="h-14 w-14 object-contain"
+            className="h-16 w-16 object-contain"
           />
           <div className="w-px h-12 bg-[#C9A800] mx-1" />
           <div className="flex flex-col leading-none">
