@@ -30,7 +30,7 @@ comienza aquí.
 
 
           </h1>
-          <p className="text-[#555] text-base leading-relaxed">Obtén una guía para tu solicitud de 
+          <p className="text-[#555] text-base leading-relaxed">
 
 
           </p>
