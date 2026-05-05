@@ -29,13 +29,13 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-[#fdf6e3] border-b border-[#e8d89a]/30">
-      <div className="mx-auto pt-3 pr-5 pb-3 pl-4 max-w-7xl flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
+      <div className="mx-auto pt-4 pr-5 pb-4 pl-4 max-w-7xl flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-3">
           <FingerprintMini />
-          <div className="w-px h-14 bg-[#C9A800] mx-1" />
-          <div className="flex flex-col leading-none">
-            <span className="text-3xl font-extrabold tracking-tight text-[#C9A800]">NIE/IA</span>
-            <span className="text-sm font-semibold text-[#C9A800] tracking-wide">New Residents</span>
+          <div className="w-px h-16 bg-[#C9A800] mx-1" />
+          <div className="flex flex-col leading-none gap-1">
+            <span className="text-4xl font-extrabold tracking-tight text-[#C9A800]">NIE/IA</span>
+            <span className="text-base font-semibold text-[#C9A800] tracking-wide">New Residents</span>
           </div>
         </Link>
 
