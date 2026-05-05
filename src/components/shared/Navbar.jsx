@@ -21,7 +21,7 @@ export default function Navbar() {
           <img
             src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/07f744cec_IMG_20260504_095949.png"
             alt="NIE/IA New Residents"
-            className="h-16 object-contain"
+            className="h-24 object-contain"
           />
         </Link>
 
