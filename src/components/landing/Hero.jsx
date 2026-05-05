@@ -24,11 +24,11 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}>
           
-          <h1 className="text-[#1a1a2e] text-4xl sm:text-5xl font-extrabold leading-tight mb-3">
-            Tu{" "}<span className="text-[#C9A800]">futuro en España</span><br />
-            comienza aquí.<br />
-            Encuentra el{" "}<span className="text-[#C9A800] hidden">camino</span><br />
-            <span className="text-[#C9A800] hidden">para hacerlo realidad.</span>
+          <h1 className="text-[#1a1a2e] text-4xl sm:text-5xl font-extrabold leading-tight mb-3">Tu futuro en España
+comienza aquí.
+
+
+
           </h1>
           <p className="text-[#555] text-base leading-relaxed">Obtén una guía para tu solicitud de Residencia, GRA
 
