@@ -39,6 +39,15 @@ Las posibles respuestas son:
 - permit_type_held (solo si non_eu_situation="has_permit"): "renew" | "modify" | "long_term" | "nationality"
 - tourist_purpose (solo si non_eu_situation="tourist"): "stay_work" | "stay_study" | "stay_family"
 
+REGLAS IMPORTANTES para detectar circunstancias excepcionales (non_eu_situation="exceptional"):
+- Si menciona violencia de género, maltrato, abuso, pareja que le maltrata/amenaza/agrede → exceptional_type="violencia_genero"
+- Si menciona trata de personas, explotación, trafficking → exceptional_type="trata"
+- Si menciona asilo, refugio, persecución, huir de su país por guerra o peligro → exceptional_type="asylum"
+- Si menciona Ucrania, desplazado por la guerra de Ucrania → exceptional_type="ucrania"
+- Si menciona razones médicas graves, enfermedad sin tratamiento en su país, vulnerabilidad extrema → exceptional_type="humanitarias"
+- Si menciona colaboración con policía, denuncia de redes criminales → exceptional_type="colaboracion"
+Estas situaciones siempre tienen prioridad sobre otras interpretaciones.
+
 Devuelve SOLO el JSON con las claves relevantes según la situación, sin texto adicional.`,
       response_json_schema: {
         type: "object",
