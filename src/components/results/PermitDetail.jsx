@@ -38,7 +38,8 @@ export default function PermitDetail({ permit, onBack }) {
     >
       <button
         onClick={onBack}
-        className="flex items-center gap-2 text-[#1a3fd4] hover:text-[#1a3fd4]/70 mb-6 transition-colors font-medium"
+        className="flex items-center gap-2 mb-6 transition-colors font-medium"
+        style={{ color: "#C9A800" }}
       >
         <ArrowLeft className="w-4 h-4" />
         <span className="text-sm">Volver a resultados</span>
@@ -48,7 +49,7 @@ export default function PermitDetail({ permit, onBack }) {
         {permit.badge}
       </Badge>
 
-      <h1 className="font-heading text-3xl sm:text-4xl font-bold text-[#1a3fd4] mb-3 leading-tight">
+      <h1 className="font-heading text-3xl sm:text-4xl font-bold mb-3 leading-tight" style={{ color: "#10103a" }}>
         {permit.title}
       </h1>
 
@@ -144,9 +145,9 @@ export default function PermitDetail({ permit, onBack }) {
         </div>
       )}
 
-      <div className="bg-[#1a3fd4]/5 rounded-xl p-5 border border-[#1a3fd4]/20">
+      <div className="rounded-xl p-5" style={{ background: "rgba(16,16,58,0.04)", border: "1px solid rgba(16,16,58,0.12)" }}>
         <p className="text-xs text-gray-500 leading-relaxed">
-          <strong className="text-[#1a3fd4]">Aviso legal:</strong> Esta información es orientativa y se basa en la normativa vigente a abril 2025. La legislación puede cambiar. Recomendamos consultar con un profesional de extranjería para tu caso concreto.
+          <strong style={{ color: "#10103a" }}>Aviso legal:</strong> Esta información es orientativa y se basa en la normativa vigente a abril 2025. La legislación puede cambiar. Recomendamos consultar con un profesional de extranjería para tu caso concreto.
         </p>
       </div>
     </motion.div>

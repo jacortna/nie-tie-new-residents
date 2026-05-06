@@ -44,7 +44,8 @@ export default function QuestionCard({ question, onSelect, currentStep, totalSte
       <div className="flex items-center gap-3 mb-8">
         <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-[#C9A800] rounded-full"
+            className="h-full rounded-full"
+            style={{ background: "linear-gradient(90deg, #C9A800, #f0d060)" }}
             initial={{ width: 0 }}
             animate={{ width: `${((currentStep + 1) / totalSteps) * 100}%` }}
             transition={{ duration: 0.4 }}
@@ -55,7 +56,7 @@ export default function QuestionCard({ question, onSelect, currentStep, totalSte
         </span>
       </div>
 
-      <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#1a3fd4] mb-2">
+      <h2 className="font-heading text-2xl sm:text-3xl font-bold mb-2" style={{ color: "#10103a" }}>
         {question.question}
       </h2>
       {question.subtitle && (
@@ -72,13 +73,16 @@ export default function QuestionCard({ question, onSelect, currentStep, totalSte
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05 }}
               onClick={() => onSelect(question.id, option.value)}
-              className="w-full flex items-start gap-4 p-5 rounded-xl border-2 border-gray-100 bg-white hover:border-[#C9A800] hover:shadow-md transition-all duration-200 text-left group"
+              className="w-full flex items-start gap-4 p-5 rounded-xl border-2 border-gray-100 bg-white hover:shadow-md transition-all duration-200 text-left group"
+              style={{ borderColor: undefined }}
+              onMouseEnter={e => e.currentTarget.style.borderColor = '#C9A800'}
+              onMouseLeave={e => e.currentTarget.style.borderColor = '#f3f4f6'}
             >
-              <div className="w-11 h-11 rounded-xl bg-[#1a3fd4]/8 flex items-center justify-center flex-shrink-0 group-hover:bg-[#C9A800]/15 transition-colors">
-                <Icon className="w-5 h-5 text-[#1a3fd4] group-hover:text-[#C9A800] transition-colors" />
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors" style={{ background: "rgba(16,16,58,0.07)" }}>
+                <Icon className="w-5 h-5 transition-colors" style={{ color: "#10103a" }} />
               </div>
               <div className="min-w-0">
-                <p className="font-semibold text-gray-800 group-hover:text-[#1a3fd4] transition-colors">{option.label}</p>
+                <p className="font-semibold text-gray-800 transition-colors">{option.label}</p>
                 {option.description && (
                   <p className="text-sm text-gray-400 mt-0.5">{option.description}</p>
                 )}

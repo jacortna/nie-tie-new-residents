@@ -36,7 +36,7 @@ export default function Permisos() {
         animate={{ opacity: 1, y: 0 }}
         className="mb-10"
       >
-        <h1 className="font-heading text-3xl sm:text-4xl font-bold text-[#1a3fd4] mb-3">
+        <h1 className="font-heading text-3xl sm:text-4xl font-bold mb-3" style={{ color: "#10103a" }}>
           Todos los permisos de residencia
         </h1>
         <p className="text-gray-500 text-lg max-w-2xl">
@@ -45,9 +45,14 @@ export default function Permisos() {
       </motion.div>
 
       <Tabs value={activeCategory} onValueChange={setActiveCategory} className="mb-8">
-        <TabsList className="bg-gray-100">
+        <TabsList style={{ background: "rgba(16,16,58,0.06)" }}>
           {categories.map((cat) => (
-            <TabsTrigger key={cat.value} value={cat.value} className="font-semibold data-[state=active]:bg-[#1a3fd4] data-[state=active]:text-white">
+            <TabsTrigger
+              key={cat.value}
+              value={cat.value}
+              className="font-semibold"
+              style={activeCategory === cat.value ? { background: "#10103a", color: "white" } : {}}
+            >
               {cat.label}
             </TabsTrigger>
           ))}

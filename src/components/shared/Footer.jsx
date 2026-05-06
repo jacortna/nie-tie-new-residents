@@ -1,57 +1,57 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function FingerprintMini() {
-  return (
-    <svg width="32" height="38" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 10 C50 10, 10 55, 10 110 C10 165, 50 210, 100 220 C150 210, 190 165, 190 110 C190 55, 150 10, 100 10Z" stroke="white" strokeWidth="5" fill="none" strokeLinecap="round" strokeOpacity="0.6"/>
-      <path d="M100 28 C62 28, 28 67, 28 110 C28 153, 62 192, 100 202 C138 192, 172 153, 172 110 C172 67, 138 28, 100 28Z" stroke="white" strokeWidth="4.5" fill="none" strokeLinecap="round" strokeOpacity="0.6"/>
-      <path d="M100 46 C72 46, 46 76, 46 110 C46 144, 72 180, 100 188 C128 180, 154 144, 154 110 C154 76, 128 46, 100 46Z" stroke="white" strokeWidth="4" fill="none" strokeLinecap="round" strokeOpacity="0.6"/>
-      <path d="M100 64 C82 64, 64 84, 64 110 C64 136, 82 162, 100 170 C118 162, 136 136, 136 110 C136 84, 118 64, 100 64Z" stroke="white" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeOpacity="0.6"/>
-      <path d="M100 82 C90 82, 82 95, 82 110 C82 126, 90 140, 100 145 C110 140, 118 126, 118 110 C118 95, 110 82, 100 82Z" stroke="white" strokeWidth="3" fill="none" strokeLinecap="round" strokeOpacity="0.6"/>
-      <circle cx="100" cy="110" r="6" fill="white" fillOpacity="0.6"/>
-    </svg>
-  );
-}
-
 export default function Footer() {
   return (
-    <footer className="bg-[#2B2FAA] text-white py-12 px-6">
+    <footer style={{ background: "linear-gradient(135deg, #0a0a2a 0%, #10103a 50%, #0a0a2a 100%)", borderTop: "1px solid rgba(201,168,0,0.25)" }} className="text-white py-10 px-6">
+      {/* Gold top line */}
+      <div className="w-full h-0.5 mb-8" style={{ background: "linear-gradient(90deg, transparent, #C9A800, #f0d060, #C9A800, transparent)" }} />
+
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
           <div>
             <Link to="/" className="mb-4 flex items-center gap-3">
               <img
-                src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/3e37e73b9_IMG_20260427_221950.jpg"
-                alt="New Residents"
-                className="h-14 w-14 object-contain rounded-2xl"
+                src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/e1c606382_IMG_20260504_095949.png"
+                alt="NIE/IA New Residents"
+                className="h-16 object-contain"
               />
-              <div className="flex flex-col leading-tight">
-                <span className="text-2xl font-extrabold tracking-tight text-white">NIE/IA</span>
-                <span className="text-sm font-semibold text-[#C9A800] tracking-wide">New Residents</span>
-              </div>
             </Link>
-            <p className="text-white/60 text-sm max-w-sm leading-relaxed">
+            <p style={{ color: "rgba(255,255,255,0.5)" }} className="text-sm max-w-sm leading-relaxed">
               Guía informativa sobre permisos de residencia en España.
               Esta herramienta no sustituye el asesoramiento legal profesional.
             </p>
           </div>
+
           <div className="flex gap-12">
             <div>
-              <h4 className="font-semibold text-sm mb-3 text-[#C9A800] tracking-wide">Navegación</h4>
+              <h4 className="font-bold text-xs mb-3 tracking-widest uppercase" style={{ color: "#C9A800" }}>
+                Navegación
+              </h4>
               <div className="space-y-2">
-                <Link to="/" className="block text-sm text-white/60 hover:text-white transition-colors">Inicio</Link>
-                <Link to="/consulta" className="block text-sm text-white/60 hover:text-white transition-colors">Consulta</Link>
-                <Link to="/permisos" className="block text-sm text-white/60 hover:text-white transition-colors">Permisos</Link>
+                {["/", "/consulta", "/permisos"].map((path, i) => (
+                  <Link
+                    key={path}
+                    to={path}
+                    className="block text-sm transition-colors hover:text-white"
+                    style={{ color: "rgba(255,255,255,0.5)" }}
+                  >
+                    {["Inicio", "Consulta", "Permisos"][i]}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
         </div>
-        <div className="border-t border-white/20 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-white/40">
+
+        <div
+          className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4"
+          style={{ borderTop: "1px solid rgba(201,168,0,0.15)" }}
+        >
+          <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
             © {new Date().getFullYear()} NIE/IA · New Residents. Información orientativa, no constituye asesoramiento legal.
           </p>
-          <p className="text-xs text-white/40">
+          <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
             Última actualización: Abril 2025
           </p>
         </div>

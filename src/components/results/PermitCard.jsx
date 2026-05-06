@@ -10,7 +10,10 @@ export default function PermitCard({ permit, index, onClick }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
       onClick={onClick}
-      className="bg-white rounded-2xl border-2 border-[#1a3fd4]/15 p-6 hover:border-[#C9A800]/60 hover:shadow-xl transition-all duration-300 cursor-pointer group"
+      className="bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 cursor-pointer group"
+      style={{ border: "1.5px solid rgba(16,16,58,0.1)" }}
+      onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(201,168,0,0.6)'}
+      onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(16,16,58,0.1)'}
     >
       <div className="flex items-start justify-between mb-3">
         <Badge className={`${permit.badgeColor} border-0 text-xs font-semibold`}>
@@ -19,7 +22,7 @@ export default function PermitCard({ permit, index, onClick }) {
         <ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-[#C9A800] group-hover:translate-x-1 transition-all flex-shrink-0" />
       </div>
 
-      <h3 className="font-heading text-xl font-bold text-[#1a3fd4] leading-tight mb-3">
+      <h3 className="font-heading text-xl font-bold leading-tight mb-3" style={{ color: "#10103a" }}>
         {permit.title}
       </h3>
 
@@ -51,7 +54,7 @@ export default function PermitCard({ permit, index, onClick }) {
         </div>
       </div>
 
-      <div className="mt-4 pt-4 border-t border-gray-100 flex items-center gap-2 text-[#1a3fd4] group-hover:text-[#C9A800] transition-colors">
+      <div className="mt-4 pt-4 border-t border-gray-100 flex items-center gap-2 transition-colors" style={{ color: "#10103a" }}>
         <FileText className="w-3.5 h-3.5" />
         <span className="text-xs font-semibold">Ver requisitos, documentación y dónde presentarlo →</span>
       </div>

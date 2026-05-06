@@ -186,7 +186,7 @@ Devuelve SOLO el JSON con las claves relevantes según la situación, sin texto 
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C9A800]/10 text-[#C9A800] rounded-full mb-4">
                 <span className="text-sm font-semibold">✅ Consulta completada</span>
               </div>
-              <h2 className="font-heading text-3xl font-bold text-[#1a3fd4] mb-2">
+              <h2 className="font-heading text-3xl font-bold mb-2" style={{ color: "#10103a" }}>
                 Tus opciones de residencia
               </h2>
               <p className="text-gray-500">
@@ -206,12 +206,12 @@ Devuelve SOLO el JSON con las claves relevantes según la situación, sin texto 
             </div>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Button onClick={handleReset} className="rounded-xl gap-2 bg-[#1a3fd4] hover:bg-[#1a3fd4]/90 text-white">
+              <Button onClick={handleReset} className="rounded-xl gap-2 text-white" style={{ background: "linear-gradient(135deg, #10103a, #1a1a6e)" }}>
                 <RotateCcw className="w-4 h-4" />
                 Hacer otra consulta
               </Button>
               <Link to="/permisos">
-                <Button variant="outline" className="rounded-xl border-[#1a3fd4]/30 text-[#1a3fd4]">
+                <Button variant="outline" className="rounded-xl" style={{ borderColor: "rgba(201,168,0,0.4)", color: "#10103a" }}>
                   Ver todos los permisos
                 </Button>
               </Link>

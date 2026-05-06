@@ -81,5 +81,6 @@ module.exports = {
   		}
   	}
   },
+  safelist: ["bg-[#10103a]", "text-[#10103a]", "border-[#10103a]"],
   plugins: [require("tailwindcss-animate")],
 }
