@@ -7,7 +7,22 @@ import { QUESTIONS, PERMITS, getRecommendedPermits } from "../lib/permitData";
 import QuestionCard from "../components/wizard/QuestionCard";
 import PermitCard from "../components/results/PermitCard";
 import PermitDetail from "../components/results/PermitDetail";
-import { base44 } from "@/api/base44Client";
+import { Capacitor } from "@capacitor/core";
+import { analizarSituacion } from "../lib/analizadorTexto";
+
+const ADMOB_INTERSTITIAL_ID = "ca-app-pub-8506962897852380/7083106644";
+
+async function showInterstitialAd() {
+  try {
+    if (!Capacitor.isNativePlatform()) return;
+    const { AdMob } = await import("@capacitor-community/admob");
+    await AdMob.initialize({ requestTrackingAuthorization: false });
+    await AdMob.prepareInterstitial({ adId: ADMOB_INTERSTITIAL_ID });
+    await AdMob.showInterstitial();
+  } catch (e) {
+    console.warn("AdMob error:", e);
+  }
+}
 
 export default function Consulta() {
   const location = useLocation();
@@ -24,58 +39,21 @@ export default function Consulta() {
     setAiLoading(true);
     setAiError(null);
 
-    base44.integrations.Core.InvokeLLM({
-      prompt: `Eres un experto en permisos de residencia en España. El usuario ha descrito su situación en texto libre. Debes analizar su texto y devolver un JSON con las respuestas al cuestionario de la app.
-
-Situación del usuario: "${situacion}"
-
-Las posibles respuestas son:
-- nationality_type: "eu" | "non_eu"
-- eu_situation (solo si eu): "work" | "study" | "enough_resources" | "family" | "long_term"
-- non_eu_situation (solo si non_eu): "no_visa" | "tourist" | "irregular" | "has_permit" | "family_eu" | "family_spanish" | "exceptional"
-- exceptional_type (solo si non_eu_situation="exceptional"): "asylum" | "trata" | "violencia_genero" | "colaboracion" | "humanitarias" | "ucrania"
-- non_eu_purpose (solo si non_eu_situation="no_visa"): "work_employee" | "work_self" | "study" | "digital_nomad" | "family_reunification" | "investor"
-- irregular_time (solo si non_eu_situation="irregular"): "less_1" | "1_to_3" | "more_3"
-- permit_type_held (solo si non_eu_situation="has_permit"): "renew" | "modify" | "long_term" | "nationality"
-- tourist_purpose (solo si non_eu_situation="tourist"): "stay_work" | "stay_study" | "stay_family"
-
-REGLAS IMPORTANTES para detectar circunstancias excepcionales (non_eu_situation="exceptional"):
-- Si menciona violencia de género, maltrato, abuso, pareja que le maltrata/amenaza/agrede → exceptional_type="violencia_genero"
-- Si menciona trata de personas, explotación, trafficking → exceptional_type="trata"
-- Si menciona asilo, refugio, persecución, huir de su país por guerra o peligro → exceptional_type="asylum"
-- Si menciona Ucrania, desplazado por la guerra de Ucrania → exceptional_type="ucrania"
-- Si menciona razones médicas graves, enfermedad sin tratamiento en su país, vulnerabilidad extrema → exceptional_type="humanitarias"
-- Si menciona colaboración con policía, denuncia de redes criminales → exceptional_type="colaboracion"
-Estas situaciones siempre tienen prioridad sobre otras interpretaciones.
-
-Devuelve SOLO el JSON con las claves relevantes según la situación, sin texto adicional.`,
-      response_json_schema: {
-        type: "object",
-        properties: {
-        nationality_type: { type: "string" },
-        eu_situation: { type: "string" },
-        non_eu_situation: { type: "string" },
-        non_eu_purpose: { type: "string" },
-        irregular_time: { type: "string" },
-        permit_type_held: { type: "string" },
-        tourist_purpose: { type: "string" },
-        exceptional_type: { type: "string" },
-        }
-      }
-    }).then((result) => {
-      // Filter out null/undefined values
+    try {
+      const resultado = analizarSituacion(situacion);
       const cleaned = Object.fromEntries(
-        Object.entries(result).filter(([, v]) => v != null)
+        Object.entries(resultado).filter(([, v]) => v != null)
       );
       setAnswers(cleaned);
       setAiLoading(false);
-    }).catch(() => {
+      showInterstitialAd();
+    } catch (err) {
+      console.error("Error analizando:", err);
       setAiError("No pudimos analizar tu situación automáticamente. Por favor, responde las preguntas manualmente.");
       setAiLoading(false);
-    });
-  }, []);
+    }
+  }, [location.state?.situacion]);
 
-  // Get the current visible questions based on answers
   const visibleQuestions = useMemo(() => {
     return QUESTIONS.filter((q) => {
       if (!q.condition) return true;
@@ -85,7 +63,6 @@ Devuelve SOLO el JSON con las claves relevantes según la situación, sin texto 
     });
   }, [answers]);
 
-  // Current question index is based on how many visible questions have been answered
   const answeredVisible = visibleQuestions.filter((q) => answers[q.id] !== undefined);
   const currentQuestion = visibleQuestions.find((q) => answers[q.id] === undefined);
   const isComplete = !currentQuestion;
@@ -93,23 +70,29 @@ Devuelve SOLO el JSON con las claves relevantes según la situación, sin texto 
   const recommendedPermitIds = isComplete ? getRecommendedPermits(answers) : [];
   const recommendedPermits = recommendedPermitIds.map((id) => PERMITS[id]).filter(Boolean);
 
-  const handleSelect = (questionId, value) => {
+  const handleSelect = async (questionId, value) => {
     setHistory((prev) => [...prev, { ...answers }]);
     setAnswers((prev) => {
       const next = { ...prev, [questionId]: value };
-      // Clear downstream answers that may no longer be relevant
       const currentIdx = QUESTIONS.findIndex((q) => q.id === questionId);
-      QUESTIONS.slice(currentIdx + 1).forEach((q) => {
-        delete next[q.id];
-      });
+      QUESTIONS.slice(currentIdx + 1).forEach((q) => { delete next[q.id]; });
       return next;
     });
+
+    const updatedAnswers = { ...answers, [questionId]: value };
+    const updatedVisible = QUESTIONS.filter((q) => {
+      if (!q.condition) return true;
+      return Object.entries(q.condition).every(([key, val]) => updatedAnswers[key] === val);
+    });
+    const nextQuestion = updatedVisible.find((q) => updatedAnswers[q.id] === undefined);
+    if (!nextQuestion) {
+      await showInterstitialAd();
+    }
   };
 
   const handleBack = () => {
     if (history.length > 0) {
-      const prev = history[history.length - 1];
-      setAnswers(prev);
+      setAnswers(history[history.length - 1]);
       setHistory((h) => h.slice(0, -1));
     }
   };
@@ -120,7 +103,6 @@ Devuelve SOLO el JSON con las claves relevantes según la situación, sin texto 
     setSelectedPermit(null);
   };
 
-  // AI loading state
   if (aiLoading) {
     return (
       <div className="max-w-2xl mx-auto px-6 py-24 flex flex-col items-center gap-4 text-center">
@@ -131,7 +113,6 @@ Devuelve SOLO el JSON con las claves relevantes según la situación, sin texto 
     );
   }
 
-  // If viewing a permit detail
   if (selectedPermit) {
     return (
       <div className="max-w-3xl mx-auto px-6 py-12">
@@ -147,24 +128,15 @@ Devuelve SOLO el JSON con las claves relevantes según la situación, sin texto 
           {aiError}
         </div>
       )}
-      {/* Back / Reset controls */}
       <div className="flex items-center justify-between mb-6">
         {history.length > 0 && !isComplete ? (
-          <button
-            onClick={handleBack}
-            className="flex items-center gap-2 text-[#1a3fd4] hover:text-[#1a3fd4]/70 transition-colors font-medium"
-          >
+          <button onClick={handleBack} className="flex items-center gap-2 text-[#1a3fd4] hover:text-[#1a3fd4]/70 transition-colors font-medium">
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm font-medium">Anterior</span>
           </button>
-        ) : (
-          <div />
-        )}
+        ) : <div />}
         {Object.keys(answers).length > 0 && (
-          <button
-            onClick={handleReset}
-            className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors"
-          >
+          <button onClick={handleReset} className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors">
             <RotateCcw className="w-4 h-4" />
             <span className="text-sm font-medium">Empezar de nuevo</span>
           </button>
@@ -193,18 +165,11 @@ Devuelve SOLO el JSON con las claves relevantes según la situación, sin texto 
                 Según tu situación, estos son los permisos que podrías solicitar. Haz clic para ver requisitos, documentación y dónde presentarlos:
               </p>
             </div>
-
             <div className="grid gap-4">
               {recommendedPermits.map((permit, idx) => (
-                <PermitCard
-                  key={permit.id}
-                  permit={permit}
-                  index={idx}
-                  onClick={() => setSelectedPermit(permit)}
-                />
+                <PermitCard key={permit.id} permit={permit} index={idx} onClick={() => setSelectedPermit(permit)} />
               ))}
             </div>
-
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Button onClick={handleReset} className="rounded-xl gap-2 text-white" style={{ background: "linear-gradient(135deg, #10103a, #1a1a6e)" }}>
                 <RotateCcw className="w-4 h-4" />

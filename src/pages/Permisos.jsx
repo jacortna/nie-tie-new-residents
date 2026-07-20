@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PERMITS } from "../lib/permitData";
 import PermitCard from "../components/results/PermitCard";
 import PermitDetail from "../components/results/PermitDetail";
@@ -44,20 +43,20 @@ export default function Permisos() {
         </p>
       </motion.div>
 
-      <Tabs value={activeCategory} onValueChange={setActiveCategory} className="mb-8">
-        <TabsList style={{ background: "rgba(16,16,58,0.06)" }}>
-          {categories.map((cat) => (
-            <TabsTrigger
-              key={cat.value}
-              value={cat.value}
-              className="font-semibold"
-              style={activeCategory === cat.value ? { background: "#10103a", color: "white" } : {}}
-            >
-              {cat.label}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-      </Tabs>
+     <div className="mb-8 flex flex-wrap gap-2">
+        {categories.map((cat) => (
+          <button
+            key={cat.value}
+            onClick={() => setActiveCategory(cat.value)}
+            className="px-4 py-2 rounded-full text-sm font-semibold transition-all"
+            style={activeCategory === cat.value
+              ? { background: "#10103a", color: "white" }
+              : { background: "rgba(16,16,58,0.06)", color: "#10103a" }}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
 
       <div className="grid sm:grid-cols-2 gap-5">
         {filteredPermits.map((permit, idx) => (

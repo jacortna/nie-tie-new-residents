@@ -21,8 +21,8 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img
-            src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/e1c606382_IMG_20260504_095949.png"
-            alt="NIE/IA"
+            src="logo.png"
+            alt="NIE/TIE"
             className="h-14 object-contain"
           />
         </Link>

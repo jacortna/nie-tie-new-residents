@@ -12,8 +12,8 @@ export default function Footer() {
           <div>
             <Link to="/" className="mb-4 flex items-center gap-3">
               <img
-                src="https://media.base44.com/images/public/69e9197cebd1f292018179cc/e1c606382_IMG_20260504_095949.png"
-                alt="NIE/IA New Residents"
+                src="logo.png"
+                alt="NIE/TIE New Residents"
                 className="h-16 object-contain"
               />
             </Link>
@@ -49,10 +49,10 @@ export default function Footer() {
           style={{ borderTop: "1px solid rgba(201,168,0,0.15)" }}
         >
           <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
-            © {new Date().getFullYear()} NIE/IA · New Residents. Información orientativa, no constituye asesoramiento legal.
+            © {new Date().getFullYear()} NIE/TIE · New Residents. Información orientativa, no constituye asesoramiento legal.
           </p>
           <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
-            Última actualización: Abril 2025
+            Última actualización: Mayo 2026
           </p>
         </div>
       </div>

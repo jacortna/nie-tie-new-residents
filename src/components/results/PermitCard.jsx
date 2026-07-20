@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Clock, Euro, Calendar, ChevronRight, FileText } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-
 export default function PermitCard({ permit, index, onClick }) {
   return (
     <motion.div
@@ -21,15 +20,12 @@ export default function PermitCard({ permit, index, onClick }) {
         </Badge>
         <ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-[#C9A800] group-hover:translate-x-1 transition-all flex-shrink-0" />
       </div>
-
       <h3 className="font-heading text-xl font-bold leading-tight mb-3" style={{ color: "#10103a" }}>
         {permit.title}
       </h3>
-
       <p className="text-gray-500 text-sm leading-relaxed mb-5 line-clamp-2">
         {permit.description}
       </p>
-
       <div className="grid grid-cols-3 gap-2 pt-4 border-t border-gray-100">
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-1">
@@ -53,10 +49,13 @@ export default function PermitCard({ permit, index, onClick }) {
           <span className="text-xs text-gray-600 font-semibold truncate">{permit.timeline}</span>
         </div>
       </div>
-
-      <div className="mt-4 pt-4 border-t border-gray-100 flex items-center gap-2 transition-colors" style={{ color: "#10103a" }}>
-        <FileText className="w-3.5 h-3.5" />
-        <span className="text-xs font-semibold">Ver requisitos, documentación y dónde presentarlo →</span>
+      <div
+        className="mt-4 flex items-center justify-center gap-2 py-3 px-4 rounded-xl transition-all duration-300 group-hover:shadow-md"
+        style={{ backgroundColor: "#10103a" }}
+      >
+        <FileText className="w-4 h-4 text-[#C9A800] flex-shrink-0" />
+        <span className="text-sm font-bold text-white">Ver requisitos y documentación</span>
+        <ChevronRight className="w-4 h-4 text-[#C9A800] group-hover:translate-x-1 transition-transform flex-shrink-0" />
       </div>
     </motion.div>
   );
